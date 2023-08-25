@@ -1,4 +1,4 @@
-import 'package:basement_v2/utils/screen_utils.dart';
+import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextWidget extends StatelessWidget {

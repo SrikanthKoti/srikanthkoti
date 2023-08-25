@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:basement_v2/ui/common/app_colors.dart';
-import 'package:basement_v2/ui/common/ui_helpers.dart';
+import 'package:srikanthkoti/ui/common/app_colors.dart';
+import 'package:srikanthkoti/ui/common/ui_helpers.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 

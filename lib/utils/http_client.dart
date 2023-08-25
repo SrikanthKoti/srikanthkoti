@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:basement_v2/utils/string_constants.dart';
+import 'package:srikanthkoti/utils/string_constants.dart';
 import 'package:http/http.dart' as http;
 
 class BaseHttpClient {

@@ -1,5 +1,5 @@
-import 'package:basement_v2/features/startup/startup_view.desktop.dart';
-import 'package:basement_v2/features/startup/startup_view.mobile.dart';
+import 'package:srikanthkoti/features/startup/startup_view.desktop.dart';
+import 'package:srikanthkoti/features/startup/startup_view.mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:responsive_builder/responsive_builder.dart';

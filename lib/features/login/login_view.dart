@@ -1,5 +1,5 @@
-import 'package:basement_v2/features/login/login_view.desktop.dart';
-import 'package:basement_v2/features/login/login_view.mobile.dart';
+import 'package:srikanthkoti/features/login/login_view.desktop.dart';
+import 'package:srikanthkoti/features/login/login_view.mobile.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';

@@ -1,9 +1,9 @@
-import 'package:basement_v2/app/app.locator.dart';
-import 'package:basement_v2/app/app.router.dart';
-import 'package:basement_v2/features/login/service/login_service.dart';
-import 'package:basement_v2/services/shared_preference_service.dart';
-import 'package:basement_v2/utils/helper.dart';
-import 'package:basement_v2/utils/result.dart';
+import 'package:srikanthkoti/app/app.locator.dart';
+import 'package:srikanthkoti/app/app.router.dart';
+import 'package:srikanthkoti/features/login/service/login_service.dart';
+import 'package:srikanthkoti/services/shared_preference_service.dart';
+import 'package:srikanthkoti/utils/helper.dart';
+import 'package:srikanthkoti/utils/result.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';

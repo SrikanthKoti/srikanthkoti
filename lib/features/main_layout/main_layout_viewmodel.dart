@@ -1,5 +1,5 @@
-import 'package:basement_v2/app/app.locator.dart';
-import 'package:basement_v2/services/shared_preference_service.dart';
+import 'package:srikanthkoti/app/app.locator.dart';
+import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:stacked/stacked.dart';

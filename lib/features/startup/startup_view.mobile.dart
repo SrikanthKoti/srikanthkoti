@@ -1,5 +1,5 @@
-import 'package:basement_v2/ui/common/ui_helpers.dart';
-import 'package:basement_v2/features/startup/startup_viewmodel.dart';
+import 'package:srikanthkoti/ui/common/ui_helpers.dart';
+import 'package:srikanthkoti/features/startup/startup_viewmodel.dart';
 import 'package:flutter/material.dart';
 
 class StartupMobile extends StatelessWidget {

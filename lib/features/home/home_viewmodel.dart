@@ -1,8 +1,8 @@
-import 'package:basement_v2/app/app.bottomsheets.dart';
-import 'package:basement_v2/app/app.dialogs.dart';
-import 'package:basement_v2/app/app.locator.dart';
-import 'package:basement_v2/app/app.router.dart';
-import 'package:basement_v2/ui/common/app_strings.dart';
+import 'package:srikanthkoti/app/app.bottomsheets.dart';
+import 'package:srikanthkoti/app/app.dialogs.dart';
+import 'package:srikanthkoti/app/app.locator.dart';
+import 'package:srikanthkoti/app/app.router.dart';
+import 'package:srikanthkoti/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 

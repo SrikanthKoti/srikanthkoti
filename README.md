@@ -17,10 +17,10 @@ samples, guidance on mobile development, and a full API reference.
 
 official Stacked doc: https://stacked.filledstacks.com/docs/tooling/stacked-cli
 
-How to get_started with this basement_v2
+How to get_started with this srikanthkoti
 
 - clone this to a folder & open this in vs code
-- do a global search for basement_v2 & replace all with your_app_name
+- do a global search for srikanthkoti & replace all with your_app_name
 
 To Activate stacked cli
 

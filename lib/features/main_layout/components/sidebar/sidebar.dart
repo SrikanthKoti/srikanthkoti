@@ -1,6 +1,6 @@
-import 'package:basement_v2/features/main_layout/main_layout_viewmodel.dart';
-import 'package:basement_v2/ui/common/styles.dart';
-import 'package:basement_v2/ui/common/ui_helpers.dart';
+import 'package:srikanthkoti/features/main_layout/main_layout_viewmodel.dart';
+import 'package:srikanthkoti/ui/common/styles.dart';
+import 'package:srikanthkoti/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
 import 'package:stacked/stacked.dart';

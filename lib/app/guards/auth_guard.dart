@@ -1,5 +1,5 @@
-import 'package:basement_v2/app/app.router.dart';
-import 'package:basement_v2/services/shared_preference_service.dart';
+import 'package:srikanthkoti/app/app.router.dart';
+import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 

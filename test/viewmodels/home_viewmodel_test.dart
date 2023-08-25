@@ -1,9 +1,9 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:basement_v2/app/app.bottomsheets.dart';
-import 'package:basement_v2/app/app.locator.dart';
-import 'package:basement_v2/ui/common/app_strings.dart';
-import 'package:basement_v2/features/home/home_viewmodel.dart';
+import 'package:srikanthkoti/app/app.bottomsheets.dart';
+import 'package:srikanthkoti/app/app.locator.dart';
+import 'package:srikanthkoti/ui/common/app_strings.dart';
+import 'package:srikanthkoti/features/home/home_viewmodel.dart';
 
 import '../helpers/test_helpers.dart';
 

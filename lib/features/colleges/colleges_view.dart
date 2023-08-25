@@ -1,4 +1,4 @@
-import 'package:basement_v2/features/colleges/colleges_viewmodel.dart';
+import 'package:srikanthkoti/features/colleges/colleges_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:sidebarx/sidebarx.dart';

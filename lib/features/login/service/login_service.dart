@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:basement_v2/app/app.locator.dart';
-import 'package:basement_v2/utils/http_client.dart';
-import 'package:basement_v2/utils/result.dart';
-import 'package:basement_v2/utils/url_constants.dart';
+import 'package:srikanthkoti/app/app.locator.dart';
+import 'package:srikanthkoti/utils/http_client.dart';
+import 'package:srikanthkoti/utils/result.dart';
+import 'package:srikanthkoti/utils/url_constants.dart';
 
 import '../../../app/app.logger.dart';
 import '../../../utils/respond.dart';

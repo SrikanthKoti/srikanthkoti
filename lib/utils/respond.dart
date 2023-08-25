@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:basement_v2/utils/result.dart';
+import 'package:srikanthkoti/utils/result.dart';
 import 'package:http/http.dart';
 
 Result respond(Response response) {

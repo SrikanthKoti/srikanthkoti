@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:basement_v2/app/app.locator.dart';
+import 'package:srikanthkoti/app/app.locator.dart';
 
 import '../helpers/test_helpers.dart';
 

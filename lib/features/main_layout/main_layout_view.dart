@@ -1,5 +1,5 @@
-import 'package:basement_v2/ui/common/app_colors.dart';
-import 'package:basement_v2/utils/screen_utils.dart';
+import 'package:srikanthkoti/ui/common/app_colors.dart';
+import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:sidebarx/sidebarx.dart';

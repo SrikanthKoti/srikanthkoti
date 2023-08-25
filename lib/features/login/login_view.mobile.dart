@@ -1,7 +1,7 @@
-import 'package:basement_v2/features/login/components/login_bg_img.dart';
-import 'package:basement_v2/features/login/components/login_form.dart';
-import 'package:basement_v2/features/login/login_viewmodel.dart';
-import 'package:basement_v2/utils/screen_utils.dart';
+import 'package:srikanthkoti/features/login/components/login_bg_img.dart';
+import 'package:srikanthkoti/features/login/components/login_form.dart';
+import 'package:srikanthkoti/features/login/login_viewmodel.dart';
+import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
