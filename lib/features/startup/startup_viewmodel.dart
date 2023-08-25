@@ -16,8 +16,11 @@ class StartupViewModel extends BaseViewModel {
 
   // Place anything here that needs to happen before we get into the application
   Future runStartupLogic() async {
-    User? user = _storageService.user;
-    _log.i(user);
+    // _routerService.clearStackAndShow(MainLayoutViewRoute());
+    _routerService.replaceWithMainLayoutView();
+
+    // User? user = _storageService.user;
+    // _log.i(user);
 
     // This is where you can make decisions on where your app should navigate when
     // you have custom startup logic
@@ -25,9 +28,9 @@ class StartupViewModel extends BaseViewModel {
     // await _routerService.clearStackAndShow(MainLayoutViewRoute());
     // _routerService.replaceWithMainLayoutView();
 
-    if (user != null) {
-      _routerService.clearStackAndShow(MainLayoutViewRoute());
-    }
-    _routerService.replaceWithLoginView();
+    // if (user != null) {
+    //   _routerService.clearStackAndShow(MainLayoutViewRoute());
+    // }
+    // _routerService.replaceWithLoginView();
   }
 }

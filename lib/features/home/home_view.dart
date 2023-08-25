@@ -25,7 +25,7 @@ class HomeView extends StackedView<HomeViewModel> {
     return Scaffold(
       key: _key,
       body: Row(
-        children: [Text(viewModel.user.name)],
+        children: [Text("viewModel.user.name")],
       ),
     );
   }
@@ -37,42 +37,42 @@ class HomeView extends StackedView<HomeViewModel> {
       HomeViewModel();
   @override
   void onViewModelReady(HomeViewModel viewModel) {
-    viewModel.initialize();
+    // viewModel.initialize();
   }
 }
 
-class _ScreensExample extends ViewModelWidget<HomeViewModel> {
-  const _ScreensExample({
-    Key? key,
-    required this.controller,
-  }) : super(key: key);
+// class _ScreensExample extends ViewModelWidget<HomeViewModel> {
+//   const _ScreensExample({
+//     Key? key,
+//     required this.controller,
+//   }) : super(key: key);
 
-  final SidebarXController controller;
+//   final SidebarXController controller;
 
-  @override
-  Widget build(BuildContext context, HomeViewModel viewModel) {
-    final theme = Theme.of(context);
-    return AnimatedBuilder(
-      animation: controller,
-      builder: (context, child) {
-        final pageTitle = viewModel.getTitleByIndex(controller.selectedIndex);
-        switch (controller.selectedIndex) {
-          case 0:
-            return Center(
-              child: Container(
-                child: Text(viewModel.user.name),
-              ),
-            );
-          default:
-            return Text(
-              pageTitle,
-              style: theme.textTheme.headlineSmall,
-            );
-        }
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context, HomeViewModel viewModel) {
+//     final theme = Theme.of(context);
+//     return AnimatedBuilder(
+//       animation: controller,
+//       builder: (context, child) {
+//         final pageTitle = viewModel.getTitleByIndex(controller.selectedIndex);
+//         switch (controller.selectedIndex) {
+//           case 0:
+//             return Center(
+//               child: Container(
+//                 child: Text(viewModel.user.name),
+//               ),
+//             );
+//           default:
+//             return Text(
+//               pageTitle,
+//               style: theme.textTheme.headlineSmall,
+//             );
+//         }
+//       },
+//     );
+//   }
+// }
 
 // case 0:
 //   return ListView.builder(

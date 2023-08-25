@@ -10,10 +10,10 @@ class AuthGuard extends StackedRouteGuard {
   Future<void> onNavigation(resolver, router) async {
     final _storageService = locator<SharedPreferencesService>();
     final _routerService = locator<RouterService>();
-    if (_storageService.user == null) {
-      _routerService.clearStackAndShow(const LoginViewRoute());
-      return;
-    }
+    // if (_storageService.user == null) {
+    //   _routerService.clearStackAndShow(const LoginViewRoute());
+    //   return;
+    // }
 
     resolver.next(true);
   }

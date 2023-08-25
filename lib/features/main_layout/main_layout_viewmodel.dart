@@ -10,19 +10,6 @@ import '../login/data/user_model.dart';
 class MainLayoutViewModel extends BaseViewModel {
   final _storageService = locator<SharedPreferencesService>();
   static final _routerService = locator<RouterService>();
-  String getTitleByIndex(int index) {
-    switch (index) {
-      case 0:
-        return 'Home';
-      default:
-        return 'Not found page';
-    }
-  }
-
-  void onTapSidebarItem(String route) {
-    _routerService.navigateToPath(path: route);
-  }
-
   final controller = SidebarXController(selectedIndex: 0, extended: true);
 
   final Map<String, dynamic> superAdminSideBar = {
@@ -57,19 +44,29 @@ class MainLayoutViewModel extends BaseViewModel {
     ],
     "home": 0,
   };
-  List<SidebarXItem> getSideBarItems(List<String> roleList) {
-    if (roleList.contains('Super Admin')) {
-      return superAdminSideBar["items"];
-    }
-    return defaultSideBar["items"];
-  }
 
-  late List<String> privileges;
-  late User user;
   late List<SidebarXItem> sidebarItems;
   void initialize() {
-    user = _storageService.user!;
-    privileges = user.privilegeList;
-    sidebarItems = getSideBarItems(user.roleList);
+    sidebarItems = defaultSideBar["items"];
   }
+
+  String getTitleByIndex(int index) {
+    switch (index) {
+      case 0:
+        return 'Home';
+      default:
+        return 'Not found page';
+    }
+  }
+
+  void onTapSidebarItem(String route) {
+    _routerService.navigateToPath(path: route);
+  }
+
+  // List<SidebarXItem> getSideBarItems(List<String>? roleList) {
+  //   if (roleList != null && roleList.contains('Super Admin')) {
+  //     return superAdminSideBar["items"];
+  //   }
+  //   return defaultSideBar["items"];
+  // }
 }

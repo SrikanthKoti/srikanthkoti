@@ -25,7 +25,7 @@ class HomeViewModel extends BaseViewModel {
   late User user;
 
   void initialize() {
-    user = _storageService.user!;
+    // user = _storageService.user!;
   }
 
   void incrementCounter() {

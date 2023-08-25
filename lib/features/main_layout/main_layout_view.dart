@@ -2,28 +2,22 @@ import 'package:srikanthkoti/ui/common/app_colors.dart';
 import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:sidebarx/sidebarx.dart';
 import 'package:stacked/stacked.dart';
-import 'package:stacked_services/stacked_services.dart';
 
-import '../../app/app.locator.dart';
 import 'components/sidebar/sidebar.dart';
 import 'main_layout_viewmodel.dart';
 
 class MainLayoutView extends StackedView<MainLayoutViewModel> {
   MainLayoutView({Key? key}) : super(key: key);
   final _key = GlobalKey<ScaffoldState>();
-  final _routerService = locator<RouterService>();
   @override
   Widget builder(
     BuildContext context,
     MainLayoutViewModel viewModel,
     Widget? child,
   ) {
-    print(_routerService.router.currentPath);
     final isSmallScreen =
         getDeviceType(MediaQuery.of(context).size) == DeviceScreenType.mobile;
-
     return Scaffold(
       key: _key,
       appBar: isSmallScreen
