@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
         allowFontScaling: false,
         builder: () {
           return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
             title: 'Srikanth Koti',
             theme: _themeService.lightTheme,
             darkTheme: _themeService.darkTheme,

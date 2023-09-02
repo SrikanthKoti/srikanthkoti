@@ -160,18 +160,7 @@ class UserRole {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-// With Nullable Values 
+// With Nullable Values
 
 // class User {
 //   String? id;

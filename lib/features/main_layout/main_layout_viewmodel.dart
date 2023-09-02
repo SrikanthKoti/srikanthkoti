@@ -1,6 +1,7 @@
 import 'package:srikanthkoti/app/app.locator.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'package:srikanthkoti/app/app.router.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -8,8 +9,26 @@ import '../../services/theme_service.dart';
 
 class MainLayoutViewModel extends BaseViewModel {
   static final _routerService = locator<RouterService>();
-  final controller = SidebarXController(selectedIndex: 0, extended: true);
   final themeService = locator<ThemeService>();
+
+  int selectedIndex = 0;
+
+  void onClickNavItem(int index) {
+    if (index == selectedIndex) {
+      return;
+    }
+    selectedIndex = index;
+    if (index == 0) {
+      _routerService.navigateToHomeView();
+    } else if (index == 1) {
+      _routerService.navigateToExperienceView();
+    } else if (index == 2) {
+      _routerService.navigateToProjectsView();
+    } else if (index == 3) {
+      _routerService.navigateToBlogView();
+    }
+    notifyListeners();
+  }
 
   final Map<String, dynamic> superAdminSideBar = {
     "items": <SidebarXItem>[
@@ -53,8 +72,17 @@ class MainLayoutViewModel extends BaseViewModel {
   };
 
   late List<SidebarXItem> sidebarItems;
+  Map<String, int> pageIndex = {
+    '/home': 0,
+    '/experience': 1,
+    '/projects': 2,
+    '/blog': 3
+  };
   void initialize() {
     sidebarItems = defaultSideBar["items"];
+    selectedIndex = pageIndex[_routerService.router.currentPath] != null
+        ? pageIndex[_routerService.router.currentPath]!
+        : 0;
   }
 
   String getTitleByIndex(int index) {
@@ -74,10 +102,4 @@ class MainLayoutViewModel extends BaseViewModel {
     print('In here');
     themeService.toggleThemeMode();
   }
-  // List<SidebarXItem> getSideBarItems(List<String>? roleList) {
-  //   if (roleList != null && roleList.contains('Super Admin')) {
-  //     return superAdminSideBar["items"];
-  //   }
-  //   return defaultSideBar["items"];
-  // }
 }

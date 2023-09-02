@@ -3,7 +3,7 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ThemeService {
-  static ThemeData _lightTheme = FlexThemeData.light(
+  final ThemeData _lightTheme = FlexThemeData.light(
     // scheme: FlexScheme.deepPurple,
     scheme: FlexScheme.materialBaseline,
     surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
@@ -20,7 +20,7 @@ class ThemeService {
     swapLegacyOnMaterial3: true,
     fontFamily: GoogleFonts.ibmPlexMono().fontFamily,
   );
-  static ThemeData _darkTheme = FlexThemeData.dark(
+  final ThemeData _darkTheme = FlexThemeData.dark(
     // scheme: FlexScheme.deepPurple,
     scheme: FlexScheme.materialBaseline,
     surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
@@ -40,9 +40,6 @@ class ThemeService {
   static ThemeMode _themeMode = ThemeMode.dark;
 
   ThemeData get lightTheme => _lightTheme;
-  // set lightTheme(ThemeData value) {
-  //   _lightTheme = value;
-  // }
 
   ThemeData getTheme() {
     if (_themeMode.toString() == 'ThemeMode.dark') {

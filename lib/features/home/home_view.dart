@@ -26,9 +26,11 @@ class HomeView extends StackedView<HomeViewModel> {
       key: _key,
       body: Row(
         children: [
-          Text(
-            "viewModel.user.name",
-            style: TextStyle(color: Theme.of(context).primaryColor),
+          Center(
+            child: Text(
+              "Home View",
+              style: Theme.of(context).textTheme.headlineLarge,
+            ),
           )
         ],
       ),
@@ -42,55 +44,6 @@ class HomeView extends StackedView<HomeViewModel> {
       HomeViewModel();
   @override
   void onViewModelReady(HomeViewModel viewModel) {
-    // viewModel.initialize();
+    viewModel.initialize();
   }
 }
-
-// class _ScreensExample extends ViewModelWidget<HomeViewModel> {
-//   const _ScreensExample({
-//     Key? key,
-//     required this.controller,
-//   }) : super(key: key);
-
-//   final SidebarXController controller;
-
-//   @override
-//   Widget build(BuildContext context, HomeViewModel viewModel) {
-//     final theme = Theme.of(context);
-//     return AnimatedBuilder(
-//       animation: controller,
-//       builder: (context, child) {
-//         final pageTitle = viewModel.getTitleByIndex(controller.selectedIndex);
-//         switch (controller.selectedIndex) {
-//           case 0:
-//             return Center(
-//               child: Container(
-//                 child: Text(viewModel.user.name),
-//               ),
-//             );
-//           default:
-//             return Text(
-//               pageTitle,
-//               style: theme.textTheme.headlineSmall,
-//             );
-//         }
-//       },
-//     );
-//   }
-// }
-
-// case 0:
-//   return ListView.builder(
-//     padding: const EdgeInsets.only(top: 10),
-//     itemBuilder: (context, index) => Container(
-//       height: 100,
-//       width: double.infinity,
-//       margin: const EdgeInsets.only(bottom: 10, right: 10, left: 10),
-//       decoration: BoxDecoration(
-//         borderRadius: BorderRadius.circular(20),
-//         color: Theme.of(context).canvasColor,
-//         boxShadow: const [BoxShadow()],
-//       ),
-//       child: Text('data'),
-//     ),
-//   );

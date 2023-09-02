@@ -1,4 +1,6 @@
+import 'package:srikanthkoti/features/blog/blog_view.dart';
 import 'package:srikanthkoti/features/colleges/colleges_view.dart';
+import 'package:srikanthkoti/features/projects/projects_view.dart';
 import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:srikanthkoti/services/theme_service.dart';
 import 'package:srikanthkoti/ui/bottom_sheets/notice/notice_sheet.dart';
@@ -14,6 +16,7 @@ import 'package:srikanthkoti/features/main_layout/main_layout_view.dart';
 
 import '../features/login/service/login_service.dart';
 import 'guards/auth_guard.dart';
+import 'package:srikanthkoti/features/experience/experience_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -32,9 +35,23 @@ import 'guards/auth_guard.dart';
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         CustomRoute(
-          initial: true,
           path: 'colleges',
           page: CollegesView,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          path: 'experience',
+          page: ExperienceView,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          path: 'projects',
+          page: ProjectsView,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          path: 'blog',
+          page: BlogView,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
       ],
