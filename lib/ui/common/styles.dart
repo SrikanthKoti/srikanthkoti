@@ -5,26 +5,28 @@ import 'package:sidebarx/sidebarx.dart';
 SidebarXTheme sidebarTheme = SidebarXTheme(
   margin: const EdgeInsets.all(10),
   decoration: BoxDecoration(
-    color: canvasColor,
+    color: backgroundDark, //canvasColor,
     borderRadius: BorderRadius.circular(20),
   ),
-  hoverColor: scaffoldBackgroundColor,
-  textStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+  // hoverColor: primary100,
+  // textStyle: TextStyle(color: Colors.white.withOpacity(0.7)),
+  // textStyle: TextStyle(color: textColor),
   selectedTextStyle: const TextStyle(color: Colors.white),
   itemTextPadding: const EdgeInsets.only(left: 30),
   selectedItemTextPadding: const EdgeInsets.only(left: 30),
   itemDecoration: BoxDecoration(
     borderRadius: BorderRadius.circular(10),
-    border: Border.all(color: canvasColor),
+    // border: Border.all(color: canvasColor),
   ),
   selectedItemDecoration: BoxDecoration(
     borderRadius: BorderRadius.circular(10),
-    border: Border.all(
-      color: actionColor.withOpacity(0.37),
-    ),
-    gradient: const LinearGradient(
-      colors: [accentCanvasColor, canvasColor],
-    ),
+    // border: Border.all(
+    //   color: actionColor.withOpacity(0.37),
+    // ),
+    // gradient: const LinearGradient(
+    //   colors: [accentCanvasColor, canvasColor],
+    // ),
+    // color: primary500,
     boxShadow: [
       BoxShadow(
         color: Colors.black.withOpacity(0.28),
@@ -42,9 +44,9 @@ SidebarXTheme sidebarTheme = SidebarXTheme(
   ),
 );
 
-const SidebarXTheme sidebarExtendedTheme = SidebarXTheme(
+SidebarXTheme sidebarExtendedTheme = SidebarXTheme(
   width: 200,
   decoration: BoxDecoration(
-    color: canvasColor,
-  ),
+      // color: backgroundDark //canvasColor,
+      ),
 );

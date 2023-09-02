@@ -14,30 +14,20 @@ class StartupMobile extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              viewModel.text,
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w900,
-              ),
-            ),
+            Text(viewModel.text,
+                style: Theme.of(context).textTheme.headlineSmall!
+                // .copyWith(fontWeight: FontWeight.bold),
+                ),
             Row(
               mainAxisSize: MainAxisSize.min,
-              children: const [
-                Text(
-                  'Loading ...',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
+              children: [
+                Text('Loading ...',
+                    style: Theme.of(context).textTheme.titleSmall!),
                 horizontalSpaceSmall,
-                SizedBox(
+                const SizedBox(
                   width: 16,
                   height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
-                  ),
+                  child: CircularProgressIndicator(),
                 )
               ],
             ),

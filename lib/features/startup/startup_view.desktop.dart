@@ -15,28 +15,21 @@ class StartupDesktop extends StatelessWidget {
           children: [
             Text(
               viewModel.textDesktop,
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.w900,
-              ),
+              style: Theme.of(context)
+                  .textTheme
+                  .headlineLarge!
+                  .copyWith(fontWeight: FontWeight.bold),
             ),
             Row(
               mainAxisSize: MainAxisSize.min,
-              children: const [
-                Text(
-                  'Loading ...',
-                  style: TextStyle(
-                    fontSize: 16,
-                  ),
-                ),
+              children: [
+                Text('Loading ...',
+                    style: Theme.of(context).textTheme.titleLarge!),
                 horizontalSpaceSmall,
-                SizedBox(
+                const SizedBox(
                   width: 16,
                   height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
-                  ),
+                  child: CircularProgressIndicator(),
                 )
               ],
             ),

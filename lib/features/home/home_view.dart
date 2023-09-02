@@ -25,7 +25,12 @@ class HomeView extends StackedView<HomeViewModel> {
     return Scaffold(
       key: _key,
       body: Row(
-        children: [Text("viewModel.user.name")],
+        children: [
+          Text(
+            "viewModel.user.name",
+            style: TextStyle(color: Theme.of(context).primaryColor),
+          )
+        ],
       ),
     );
   }

@@ -1,13 +1,12 @@
 import 'package:srikanthkoti/utils/screen_utils.dart';
+import 'package:srikanthkoti/services/theme_service.dart';
 import 'package:srikanthkoti/utils/value_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:srikanthkoti/app/app.bottomsheets.dart';
 import 'package:srikanthkoti/app/app.dialogs.dart';
 import 'package:srikanthkoti/app/app.locator.dart';
 import 'package:srikanthkoti/app/app.router.dart';
-import 'package:srikanthkoti/ui/common/app_colors.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:stacked_services/stacked_services.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 void main() {
@@ -31,7 +30,7 @@ Size getDesignSize(context) {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
+  static final _themeService = locator<ThemeService>();
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -39,14 +38,10 @@ class MyApp extends StatelessWidget {
         allowFontScaling: false,
         builder: () {
           return MaterialApp.router(
-            title: 'Flutter Demo',
-            theme: Theme.of(context).copyWith(
-              primaryColor: kcBackgroundColor,
-              focusColor: kcPrimaryColor,
-              textTheme: Theme.of(context).textTheme.apply(
-                    bodyColor: Colors.black,
-                  ),
-            ),
+            title: 'Srikanth Koti',
+            theme: _themeService.lightTheme,
+            darkTheme: _themeService.darkTheme,
+            themeMode: _themeService.themeMode,
             routerDelegate: stackedRouter.delegate(),
             routeInformationParser: stackedRouter.defaultRouteParser(),
           );

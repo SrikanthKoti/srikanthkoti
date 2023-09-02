@@ -13,6 +13,7 @@ import 'package:stacked_shared/stacked_shared.dart';
 
 import '../features/login/service/login_service.dart';
 import '../services/shared_preference_service.dart';
+import '../services/theme_service.dart';
 import '../utils/http_client.dart';
 import 'app.router.dart';
 
@@ -36,6 +37,7 @@ Future<void> setupLocator({
   final sharedPreferencesService = await SharedPreferencesService.getInstance();
   locator.registerSingleton(sharedPreferencesService);
 
+  locator.registerLazySingleton(() => ThemeService());
   if (stackedRouter == null) {
     throw Exception(
         'Stacked is building to use the Router (Navigator 2.0) navigation but no stackedRouter is supplied. Pass the stackedRouter to the setupLocator function in main.dart');

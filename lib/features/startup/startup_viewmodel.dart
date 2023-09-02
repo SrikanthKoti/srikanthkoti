@@ -16,8 +16,9 @@ class StartupViewModel extends BaseViewModel {
 
   // Place anything here that needs to happen before we get into the application
   Future runStartupLogic() async {
-    // _routerService.clearStackAndShow(MainLayoutViewRoute());
-    _routerService.replaceWithMainLayoutView();
+    _log.i("started");
+    _routerService.clearStackAndShow(MainLayoutViewRoute());
+    // _routerService.replaceWithMainLayoutView();
 
     // User? user = _storageService.user;
     // _log.i(user);
