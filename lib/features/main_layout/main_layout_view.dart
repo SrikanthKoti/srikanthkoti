@@ -34,7 +34,7 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
           : null,
       drawer: isMobile
           ? Drawer(
-              width: 150,
+              width: 200,
               child: NavRail(isTablet: isTablet),
             )
           : null,
