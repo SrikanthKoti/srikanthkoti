@@ -21,17 +21,25 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
 
     return Scaffold(
       key: _key,
-      appBar: isMobile
-          ? AppBar(
-              title: Text("Srikanth Koti"),
-              leading: IconButton(
-                onPressed: () {
-                  _key.currentState?.openDrawer();
-                },
-                icon: const Icon(Icons.menu),
-              ),
-            )
-          : null,
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(top: 8.0),
+        child: FloatingActionButton(
+          onPressed: () => {viewModel.toggleThemeMode()},
+          child: Icon(Icons.light_mode),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      appBar: AppBar(
+        title: Text("Srikanth Koti"),
+        leading: IconButton(
+          onPressed: () {
+            // viewModel.navigationKey.currentState?
+            // isMobile ?
+            // _key.currentState?.openDrawer() : ;
+          },
+          icon: const Icon(Icons.menu),
+        ),
+      ),
       drawer: isMobile
           ? Drawer(
               width: 200,
@@ -73,47 +81,57 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
   @override
   Widget build(BuildContext context, MainLayoutViewModel viewModel) {
     return NavigationRail(
-      selectedIconTheme: viewModel.themeService
-          .getTheme()
+      key: viewModel.navigationKey,
+      selectedIconTheme:
+          Theme.of(context).navigationRailTheme.selectedIconTheme,
+      unselectedIconTheme:
+          Theme.of(context).navigationRailTheme.unselectedIconTheme,
+      selectedLabelTextStyle: Theme.of(context)
           .navigationRailTheme
-          .selectedIconTheme,
-      unselectedIconTheme: viewModel.themeService
-          .getTheme()
+          .selectedLabelTextStyle!
+          .copyWith(
+            fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
+          ),
+      unselectedLabelTextStyle: Theme.of(context)
           .navigationRailTheme
-          .unselectedIconTheme,
+          .unselectedLabelTextStyle!
+          .copyWith(
+            fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
+          ),
       extended: !isTablet,
+      // labelType:
+      //     !isTablet ? NavigationRailLabelType.all : NavigationRailLabelType.all,
       minExtendedWidth: 200,
       selectedIndex: viewModel.selectedIndex,
-      groupAlignment: -1.0,
       onDestinationSelected: (int index) {
         viewModel.onClickNavItem(index);
       },
       leading: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Srikanth',
-            style: Theme.of(context).textTheme.headlineLarge,
+          SizedBox(
+            height: 20,
           ),
           Text(
-            'Koti',
+            !isTablet ? 'Srikanth' : 'SK',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          GestureDetector(
-            child: Icon(
-              Icons.dark_mode,
+          if (!isTablet)
+            Text(
+              'Koti',
+              style: Theme.of(context).textTheme.headlineLarge,
             ),
-            onTap: viewModel.toggleThemeMode,
+          SizedBox(
+            height: 60,
           )
         ],
       ),
-      destinations: <NavigationRailDestination>[
+      destinations: const <NavigationRailDestination>[
         NavigationRailDestination(
           icon: Icon(Icons.favorite_border),
           selectedIcon: Icon(Icons.home_filled),
           label: Text(
             'Home',
-            style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
         NavigationRailDestination(
@@ -121,7 +139,6 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           selectedIcon: Icon(Icons.book),
           label: Text(
             'Experience',
-            style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
         NavigationRailDestination(
@@ -129,7 +146,6 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           selectedIcon: Icon(Icons.star),
           label: Text(
             'Projects',
-            style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
         NavigationRailDestination(
@@ -137,18 +153,9 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           selectedIcon: Icon(Icons.article),
           label: Text(
             'Blog',
-            style: Theme.of(context).textTheme.titleMedium,
           ),
         ),
       ],
-      trailing: Column(
-        children: [
-          Icon(
-            Icons.keyboard_double_arrow_left_rounded,
-            color: Theme.of(context).primaryColor,
-          ),
-        ],
-      ),
     );
   }
 }

@@ -10,7 +10,7 @@ import '../../services/theme_service.dart';
 class MainLayoutViewModel extends BaseViewModel {
   static final _routerService = locator<RouterService>();
   final themeService = locator<ThemeService>();
-
+  final GlobalKey navigationKey = GlobalKey();
   int selectedIndex = 0;
 
   void onClickNavItem(int index) {
