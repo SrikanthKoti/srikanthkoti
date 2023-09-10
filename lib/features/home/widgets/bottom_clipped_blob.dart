@@ -1,6 +1,5 @@
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
-import 'package:srikanthkoti/utils/screen_utils.dart';
 
 class BottomClipInspirationExample extends StatelessWidget {
   const BottomClipInspirationExample({Key? key}) : super(key: key);
@@ -11,16 +10,12 @@ class BottomClipInspirationExample extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          Container(
-            // color: Colors.green,
-            child: Blob.fromID(
-              id: ['9-7-3291'],
-              size: 350,
-              styles: BlobStyles(color: Theme.of(context).primaryColor),
-            ),
+          Blob.fromID(
+            id: const ['9-7-3291'],
+            size: 350,
+            styles: BlobStyles(color: Theme.of(context).primaryColor),
           ),
-          Container(
-            // color: Colors.red,
+          SizedBox(
             width: 350,
             child: ClipPath(
               clipper: MyClipper(),

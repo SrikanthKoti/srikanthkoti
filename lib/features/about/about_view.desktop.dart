@@ -105,79 +105,79 @@ class AboutDesktop extends ViewModelWidget<AboutViewModel> {
                             ),
                           ],
                         ),
-                        Row(
-                          children: [
-                            AnimatedTextKit(
-                              onNext: (p0, p1) {
-                                if (p0 == 1) {
-                                  viewModel.setText("Engineer");
-                                } else {
-                                  viewModel.setText("Developer");
-                                }
-                              },
-                              repeatForever: true,
-                              animatedTexts: [
-                                TypewriterAnimatedText(
-                                  'Web',
-                                  speed: Duration(milliseconds: 200),
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .displayLarge!
-                                      .copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              Theme.of(context).primaryColor),
-                                ),
-                                TypewriterAnimatedText(
-                                  'Flutter',
-                                  speed: Duration(milliseconds: 200),
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .displayLarge!
-                                      .copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              Theme.of(context).primaryColor),
-                                ),
-                                TypewriterAnimatedText(
-                                  'IoT',
-                                  speed: Duration(milliseconds: 200),
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .displayLarge!
-                                      .copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              Theme.of(context).primaryColor),
-                                ),
-                                TypewriterAnimatedText(
-                                  'Cloud',
-                                  speed: Duration(milliseconds: 200),
-                                  textStyle: Theme.of(context)
-                                      .textTheme
-                                      .displayLarge!
-                                      .copyWith(
-                                          fontWeight: FontWeight.bold,
-                                          color:
-                                              Theme.of(context).primaryColor),
-                                ),
-                              ],
-                              totalRepeatCount: 4,
-                              pause: const Duration(milliseconds: 500),
-                              displayFullTextOnTap: true,
-                              // stopPauseOnTap: true,
-                            ),
-                            Text(
-                              viewModel.text,
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .displayLarge!
-                                  .copyWith(
-                                    overflow: TextOverflow.visible,
-                                  ),
-                            ),
-                          ],
-                        ),
+                        // Row(
+                        //   children: [
+                        //     AnimatedTextKit(
+                        //       onNext: (p0, p1) {
+                        //         if (p0 == 1) {
+                        //           viewModel.setText("Engineer");
+                        //         } else {
+                        //           viewModel.setText("Developer");
+                        //         }
+                        //       },
+                        //       repeatForever: true,
+                        //       animatedTexts: [
+                        //         TypewriterAnimatedText(
+                        //           'Web',
+                        //           speed: Duration(milliseconds: 200),
+                        //           textStyle: Theme.of(context)
+                        //               .textTheme
+                        //               .displayLarge!
+                        //               .copyWith(
+                        //                   fontWeight: FontWeight.bold,
+                        //                   color:
+                        //                       Theme.of(context).primaryColor),
+                        //         ),
+                        //         TypewriterAnimatedText(
+                        //           'Flutter',
+                        //           speed: Duration(milliseconds: 200),
+                        //           textStyle: Theme.of(context)
+                        //               .textTheme
+                        //               .displayLarge!
+                        //               .copyWith(
+                        //                   fontWeight: FontWeight.bold,
+                        //                   color:
+                        //                       Theme.of(context).primaryColor),
+                        //         ),
+                        //         TypewriterAnimatedText(
+                        //           'IoT',
+                        //           speed: Duration(milliseconds: 200),
+                        //           textStyle: Theme.of(context)
+                        //               .textTheme
+                        //               .displayLarge!
+                        //               .copyWith(
+                        //                   fontWeight: FontWeight.bold,
+                        //                   color:
+                        //                       Theme.of(context).primaryColor),
+                        //         ),
+                        //         TypewriterAnimatedText(
+                        //           'Cloud',
+                        //           speed: Duration(milliseconds: 200),
+                        //           textStyle: Theme.of(context)
+                        //               .textTheme
+                        //               .displayLarge!
+                        //               .copyWith(
+                        //                   fontWeight: FontWeight.bold,
+                        //                   color:
+                        //                       Theme.of(context).primaryColor),
+                        //         ),
+                        //       ],
+                        //       totalRepeatCount: 4,
+                        //       pause: const Duration(milliseconds: 500),
+                        //       displayFullTextOnTap: true,
+                        //       // stopPauseOnTap: true,
+                        //     ),
+                        //     Text(
+                        //       viewModel.text,
+                        //       style: Theme.of(context)
+                        //           .textTheme
+                        //           .displayLarge!
+                        //           .copyWith(
+                        //             overflow: TextOverflow.visible,
+                        //           ),
+                        //     ),
+                        //   ],
+                        // ),
                       ],
                     ),
                   ),

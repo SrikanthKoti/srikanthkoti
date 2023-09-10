@@ -19,12 +19,12 @@ class HomeMobile extends ViewModelWidget<HomeViewModel> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Greeting(),
-              JobTitles(),
+              const Greeting(),
+              const JobTitles(),
               SizedBox(
                 height: 20.spMax,
               ),
-              IconsRow(),
+              const IconsRow(),
             ],
           ),
         ),

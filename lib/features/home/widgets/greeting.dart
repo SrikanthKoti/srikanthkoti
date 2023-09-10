@@ -27,7 +27,7 @@ class Greeting extends StatelessWidget {
             TypewriterAnimatedText(
               '',
               cursor: '.',
-              speed: Duration(milliseconds: 100),
+              speed: const Duration(milliseconds: 100),
               textStyle: Theme.of(context).textTheme.displayMedium!.copyWith(
                     color: Theme.of(context).primaryColor,
                     fontSize: isMobile ? 20.sp : 45.sp,

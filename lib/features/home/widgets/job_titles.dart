@@ -28,7 +28,7 @@ class JobTitles extends ViewModelWidget<HomeViewModel> {
           animatedTexts: [
             TypewriterAnimatedText(
               'Web',
-              speed: Duration(milliseconds: 200),
+              speed: const Duration(milliseconds: 200),
               textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
@@ -37,7 +37,7 @@ class JobTitles extends ViewModelWidget<HomeViewModel> {
             ),
             TypewriterAnimatedText(
               'Flutter',
-              speed: Duration(milliseconds: 200),
+              speed: const Duration(milliseconds: 200),
               textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
@@ -46,7 +46,7 @@ class JobTitles extends ViewModelWidget<HomeViewModel> {
             ),
             TypewriterAnimatedText(
               'IoT',
-              speed: Duration(milliseconds: 200),
+              speed: const Duration(milliseconds: 200),
               textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
@@ -55,7 +55,7 @@ class JobTitles extends ViewModelWidget<HomeViewModel> {
             ),
             TypewriterAnimatedText(
               'Cloud',
-              speed: Duration(milliseconds: 200),
+              speed: const Duration(milliseconds: 200),
               textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
@@ -66,7 +66,6 @@ class JobTitles extends ViewModelWidget<HomeViewModel> {
           totalRepeatCount: 4,
           pause: const Duration(milliseconds: 500),
           displayFullTextOnTap: true,
-          // stopPauseOnTap: true,
         ),
         Text(
           viewModel.text,

@@ -1,19 +1,15 @@
 import 'package:srikanthkoti/app/app.bottomsheets.dart';
 import 'package:srikanthkoti/app/app.dialogs.dart';
 import 'package:srikanthkoti/app/app.locator.dart';
-import 'package:srikanthkoti/app/app.router.dart';
 import 'package:srikanthkoti/ui/common/app_strings.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
-import '../../services/shared_preference_service.dart';
 import '../login/data/user_model.dart';
 
 class HomeViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
-  final _storageService = locator<SharedPreferencesService>();
-  final _routerService = locator<RouterService>();
 
   String get counterLabel => 'Counter is: $_counter';
 
@@ -24,9 +20,7 @@ class HomeViewModel extends BaseViewModel {
 
   late User user;
 
-  void initialize() {
-    // user = _storageService.user!;
-  }
+  void initialize() {}
   void setText(String newText) {
     text = newText;
     notifyListeners();
@@ -35,15 +29,6 @@ class HomeViewModel extends BaseViewModel {
   void incrementCounter() {
     _counter++;
     rebuildUi();
-  }
-
-  String getTitleByIndex(int index) {
-    switch (index) {
-      case 0:
-        return 'Home';
-      default:
-        return 'Not found page';
-    }
   }
 
   void showDialog() {
