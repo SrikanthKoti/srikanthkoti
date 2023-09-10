@@ -17,6 +17,12 @@ samples, guidance on mobile development, and a full API reference.
 
 official Stacked doc: https://stacked.filledstacks.com/docs/tooling/stacked-cli
 
+## How to deploy
+
+- flutter pub get
+- flutter build web
+- firebase deploy
+
 How to get_started with this srikanthkoti
 
 - clone this to a folder & open this in vs code

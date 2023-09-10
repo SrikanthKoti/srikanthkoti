@@ -37,7 +37,7 @@ class ThemeService {
     fontFamily: GoogleFonts.ibmPlexMono().fontFamily,
   );
 
-  static ThemeMode _themeMode = ThemeMode.light;
+  static ThemeMode _themeMode = ThemeMode.dark;
 
   ThemeData get lightTheme => _lightTheme;
 

@@ -28,10 +28,10 @@ class PortfolioImage extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        Transform.scale(
-          scale: getScale(context),
-          child: const BottomClipInspirationExample(),
-        ),
+        // Transform.scale(
+        //   scale: getScale(context),
+        //   child: const BottomClipInspirationExample(),
+        // ),
       ],
     );
   }
