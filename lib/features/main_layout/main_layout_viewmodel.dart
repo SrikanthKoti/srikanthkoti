@@ -12,6 +12,7 @@ class MainLayoutViewModel extends BaseViewModel {
   final themeService = locator<ThemeService>();
   final GlobalKey navigationKey = GlobalKey();
   int selectedIndex = 0;
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   void onClickNavItem(int index) {
     if (index == selectedIndex) {
@@ -31,7 +32,7 @@ class MainLayoutViewModel extends BaseViewModel {
     } else if (index == 5) {
       _routerService.navigateToBlogView();
     }
-    notifyListeners();
+    scaffoldKey.currentState?.closeDrawer();
   }
 
   final Map<String, dynamic> superAdminSideBar = {

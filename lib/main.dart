@@ -37,6 +37,10 @@ class MyApp extends StatelessWidget {
         designSize: getDesignSize(context),
         // allowFontScaling: false,
         minTextAdapt: true,
+        ensureScreenSize: true,
+        // fontSizeResolver: (num val, ScreenUtil screenUtil) {
+        //   return val.sp;
+        // },
         builder: (context, child) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,

@@ -9,7 +9,6 @@ import 'main_layout_viewmodel.dart';
 
 class MainLayoutView extends StackedView<MainLayoutViewModel> {
   MainLayoutView({Key? key}) : super(key: key);
-  final _key = GlobalKey<ScaffoldState>();
   @override
   Widget builder(
     BuildContext context,
@@ -22,7 +21,7 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
         getDeviceType(MediaQuery.of(context).size) == DeviceScreenType.tablet;
 
     return Scaffold(
-      key: _key,
+      key: viewModel.scaffoldKey,
       // floatingActionButton: Padding(
       //   padding: const EdgeInsets.only(top: 8.0),
       //   child: FloatingActionButton(
@@ -36,7 +35,7 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
               // title: Text("Srikanth Koti"),
               leading: IconButton(
                 onPressed: () {
-                  _key.currentState?.openDrawer();
+                  viewModel.scaffoldKey.currentState?.openDrawer();
                 },
                 icon: const Icon(Icons.menu),
               ),
