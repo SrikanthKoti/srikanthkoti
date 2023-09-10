@@ -21,10 +21,14 @@ class MainLayoutViewModel extends BaseViewModel {
     if (index == 0) {
       _routerService.navigateToHomeView();
     } else if (index == 1) {
-      _routerService.navigateToExperienceView();
+      _routerService.navigateToAboutView();
     } else if (index == 2) {
-      _routerService.navigateToProjectsView();
+      _routerService.navigateToSkillsView();
     } else if (index == 3) {
+      _routerService.navigateToProjectsView();
+    } else if (index == 4) {
+      _routerService.navigateToExperienceView();
+    } else if (index == 5) {
       _routerService.navigateToBlogView();
     }
     notifyListeners();
@@ -74,9 +78,11 @@ class MainLayoutViewModel extends BaseViewModel {
   late List<SidebarXItem> sidebarItems;
   Map<String, int> pageIndex = {
     '/home': 0,
-    '/experience': 1,
-    '/projects': 2,
-    '/blog': 3
+    '/about': 1,
+    '/skills': 2,
+    '/projects': 3,
+    '/experience': 4,
+    '/blog': 5
   };
   void initialize() {
     sidebarItems = defaultSideBar["items"];

@@ -1,6 +1,8 @@
+import 'package:srikanthkoti/features/about/about_view.dart';
 import 'package:srikanthkoti/features/blog/blog_view.dart';
 import 'package:srikanthkoti/features/colleges/colleges_view.dart';
 import 'package:srikanthkoti/features/projects/projects_view.dart';
+import 'package:srikanthkoti/features/skills/skills_view.dart';
 import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:srikanthkoti/services/theme_service.dart';
 import 'package:srikanthkoti/ui/bottom_sheets/notice/notice_sheet.dart';
@@ -32,6 +34,16 @@ import 'package:srikanthkoti/features/experience/experience_view.dart';
           initial: true,
           path: 'home',
           page: HomeView,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          path: 'about',
+          page: AboutView,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          path: 'skills',
+          page: SkillsView,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         CustomRoute(

@@ -1,3 +1,4 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -29,20 +30,20 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
-      appBar: AppBar(
-        title: Text("Srikanth Koti"),
-        leading: IconButton(
-          onPressed: () {
-            // viewModel.navigationKey.currentState?
-            // isMobile ?
-            // _key.currentState?.openDrawer() : ;
-          },
-          icon: const Icon(Icons.menu),
-        ),
-      ),
+      appBar: isMobile
+          ? AppBar(
+              title: Text("Srikanth Koti"),
+              leading: IconButton(
+                onPressed: () {
+                  _key.currentState?.openDrawer();
+                },
+                icon: const Icon(Icons.menu),
+              ),
+            )
+          : null,
       drawer: isMobile
           ? Drawer(
-              width: 200,
+              width: 100,
               child: NavRail(isTablet: isTablet),
             )
           : null,
@@ -82,6 +83,7 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
   Widget build(BuildContext context, MainLayoutViewModel viewModel) {
     return NavigationRail(
       key: viewModel.navigationKey,
+      elevation: 5,
       selectedIconTheme:
           Theme.of(context).navigationRailTheme.selectedIconTheme,
       unselectedIconTheme:
@@ -98,7 +100,7 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           .copyWith(
             fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
           ),
-      extended: !isTablet,
+      extended: false, //!isTablet,
       // labelType:
       //     !isTablet ? NavigationRailLabelType.all : NavigationRailLabelType.all,
       minExtendedWidth: 200,
@@ -113,14 +115,15 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
             height: 20,
           ),
           Text(
-            !isTablet ? 'Srikanth' : 'SK',
+            'SK',
+            //!isTablet ? 'Srikanth' : 'SK',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          if (!isTablet)
-            Text(
-              'Koti',
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
+          // if (!isTablet)
+          //   Text(
+          //     'Koti',
+          //     style: Theme.of(context).textTheme.headlineLarge,
+          //   ),
           SizedBox(
             height: 60,
           )
@@ -128,10 +131,36 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
       ),
       destinations: const <NavigationRailDestination>[
         NavigationRailDestination(
-          icon: Icon(Icons.favorite_border),
-          selectedIcon: Icon(Icons.home_filled),
+          icon: Icon(
+            FontAwesomeIcons.code,
+          ),
+          selectedIcon: Icon(
+            FontAwesomeIcons.code,
+          ),
           label: Text(
             'Home',
+          ),
+        ),
+        NavigationRailDestination(
+          icon: Icon(
+            FontAwesomeIcons.addressCard,
+          ),
+          selectedIcon: Icon(
+            FontAwesomeIcons.solidAddressCard,
+          ),
+          label: Text(
+            'About',
+          ),
+        ),
+        NavigationRailDestination(
+          icon: Icon(
+            FontAwesomeIcons.star,
+          ),
+          selectedIcon: Icon(
+            FontAwesomeIcons.solidStar,
+          ),
+          label: Text(
+            'Skills',
           ),
         ),
         NavigationRailDestination(

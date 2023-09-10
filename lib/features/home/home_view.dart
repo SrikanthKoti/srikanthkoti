@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:sidebarx/sidebarx.dart';
+import 'package:srikanthkoti/features/home/home_view.desktop.dart';
+import 'package:srikanthkoti/features/home/home_view.mobile.dart';
 import 'package:stacked/stacked.dart';
 
 import 'home_viewmodel.dart';
@@ -22,18 +24,9 @@ class HomeView extends StackedView<HomeViewModel> {
     final isSmallScreen =
         getDeviceType(MediaQuery.of(context).size) == DeviceScreenType.mobile;
 
-    return Scaffold(
-      key: _key,
-      body: Row(
-        children: [
-          Center(
-            child: Text(
-              "Home View",
-              style: Theme.of(context).textTheme.headlineLarge,
-            ),
-          )
-        ],
-      ),
+    return ScreenTypeLayout.builder(
+      mobile: (_) => const HomeMobile(),
+      desktop: (_) => const HomeDesktop(),
     );
   }
 

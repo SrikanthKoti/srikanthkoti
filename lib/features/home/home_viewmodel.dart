@@ -18,7 +18,7 @@ class HomeViewModel extends BaseViewModel {
   String get counterLabel => 'Counter is: $_counter';
 
   int _counter = 0;
-
+  String text = 'Developer';
   String get testDesktop => 'Hello, STACKED DESKTOP!';
   String get testMobile => 'Hello, STACKED MOBILE!';
 
@@ -26,6 +26,10 @@ class HomeViewModel extends BaseViewModel {
 
   void initialize() {
     // user = _storageService.user!;
+  }
+  void setText(String newText) {
+    text = newText;
+    notifyListeners();
   }
 
   void incrementCounter() {
