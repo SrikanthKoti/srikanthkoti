@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:srikanthkoti/ui/atoms/custom_text_field.dart';
 import 'package:srikanthkoti/features/login/login_viewmodel.dart';
 import 'package:srikanthkoti/utils/screen_utils.dart';
@@ -26,7 +27,7 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
           'Login',
           textAlign: TextAlign.start,
           style: TextStyle(
-            fontSize: 32.ssp,
+            fontSize: 32,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -110,7 +111,7 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
                     : viewModel.onClickVerifyOtp,
                 child: Text(
                   viewModel.loginState == 'getOtp' ? 'Get otp' : 'Verify',
-                  style: TextStyle(fontSize: 18.ssp),
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
             ),

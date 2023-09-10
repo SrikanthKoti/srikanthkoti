@@ -16,12 +16,8 @@ class AboutView extends StackedView<AboutViewModel> {
     Widget? child,
   ) {
     return ScreenTypeLayout.builder(
-      mobile: (_) => AboutMobile(
-        viewModel: viewModel,
-      ),
-      desktop: (_) => AboutDesktop(
-        viewModel: viewModel,
-      ),
+      mobile: (_) => AboutMobile(),
+      desktop: (_) => AboutDesktop(),
     );
   }
 

@@ -1,4 +1,4 @@
-import 'package:srikanthkoti/utils/screen_utils.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:srikanthkoti/services/theme_service.dart';
 import 'package:srikanthkoti/utils/value_constants.dart';
 import 'package:flutter/material.dart';
@@ -35,8 +35,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: getDesignSize(context),
-        allowFontScaling: false,
-        builder: () {
+        // allowFontScaling: false,
+        minTextAdapt: true,
+        builder: (context, child) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Srikanth Koti',

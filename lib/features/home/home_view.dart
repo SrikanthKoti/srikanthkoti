@@ -27,6 +27,7 @@ class HomeView extends StackedView<HomeViewModel> {
     return ScreenTypeLayout.builder(
       mobile: (_) => const HomeMobile(),
       desktop: (_) => const HomeDesktop(),
+      tablet: (_) => const HomeDesktop(),
     );
   }
 

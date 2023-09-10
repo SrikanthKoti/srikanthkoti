@@ -15,19 +15,19 @@ class BottomClipInspirationExample extends StatelessWidget {
             // color: Colors.green,
             child: Blob.fromID(
               id: ['9-7-3291'],
-              size: 300,
+              size: 350,
               styles: BlobStyles(color: Theme.of(context).primaryColor),
             ),
           ),
           Container(
             // color: Colors.red,
-            width: 300,
+            width: 350,
             child: ClipPath(
               clipper: MyClipper(),
               child: Image.asset(
                 "images/0_no_bg.png",
                 alignment: Alignment.bottomCenter,
-                height: 340,
+                height: 400,
               ),
             ),
           ),

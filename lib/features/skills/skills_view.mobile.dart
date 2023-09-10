@@ -1,14 +1,13 @@
 import 'package:srikanthkoti/features/skills/skills_viewmodel.dart';
 import 'package:srikanthkoti/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
+import 'package:stacked/stacked.dart';
 
-class SkillsMobile extends StatelessWidget {
-  final SkillsViewModel viewModel;
-
-  const SkillsMobile({super.key, required this.viewModel});
+class SkillsMobile extends ViewModelWidget<SkillsViewModel> {
+  const SkillsMobile({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, SkillsViewModel viewModel) {
     return Scaffold(
       body: Center(
         child: Column(

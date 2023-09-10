@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
@@ -22,17 +23,17 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
 
     return Scaffold(
       key: _key,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(top: 8.0),
-        child: FloatingActionButton(
-          onPressed: () => {viewModel.toggleThemeMode()},
-          child: Icon(Icons.light_mode),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.only(top: 8.0),
+      //   child: FloatingActionButton(
+      //     onPressed: () => {viewModel.toggleThemeMode()},
+      //     child: Icon(Icons.light_mode),
+      //   ),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       appBar: isMobile
           ? AppBar(
-              title: Text("Srikanth Koti"),
+              // title: Text("Srikanth Koti"),
               leading: IconButton(
                 onPressed: () {
                   _key.currentState?.openDrawer();

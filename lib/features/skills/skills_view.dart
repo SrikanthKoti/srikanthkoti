@@ -18,12 +18,8 @@ class SkillsView extends StackedView<SkillsViewModel> {
     Widget? child,
   ) {
     return ScreenTypeLayout.builder(
-      mobile: (_) => SkillsMobile(
-        viewModel: viewModel,
-      ),
-      desktop: (_) => SkillsDesktop(
-        viewModel: viewModel,
-      ),
+      mobile: (_) => SkillsMobile(),
+      desktop: (_) => SkillsDesktop(),
     );
   }
 
