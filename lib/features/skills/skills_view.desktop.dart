@@ -10,30 +10,33 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
   Widget build(BuildContext context, SkillsViewModel viewModel) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              "Skills View Desktop",
-              style: Theme.of(context)
-                  .textTheme
-                  .headlineLarge!
-                  .copyWith(fontWeight: FontWeight.bold),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Loading ...',
-                    style: Theme.of(context).textTheme.titleLarge!),
-                horizontalSpaceSmall,
-                const SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(),
-                )
-              ],
-            ),
-          ],
+        child: SingleChildScrollView(
+          controller: viewModel.skillsScrollController,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Skills View Desktop",
+                style: Theme.of(context)
+                    .textTheme
+                    .headlineLarge!
+                    .copyWith(fontWeight: FontWeight.bold),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text('Loading ...',
+                      style: Theme.of(context).textTheme.titleLarge!),
+                  horizontalSpaceSmall,
+                  const SizedBox(
+                    width: 16,
+                    height: 16,
+                    child: CircularProgressIndicator(),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

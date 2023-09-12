@@ -7,7 +7,7 @@ import 'package:srikanthkoti/features/home/home_view.dart';
 import 'package:srikanthkoti/services/navrail_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
-
+import 'package:easy_debounce/easy_debounce.dart';
 import '../../services/theme_service.dart';
 
 class MainLayoutViewModel extends ReactiveViewModel {
@@ -85,7 +85,10 @@ class MainLayoutViewModel extends ReactiveViewModel {
       if (currentPosition >= maxScrollExtent) {
         print('Reached bottom end');
         if (selectedIndex < 5) {
-          onClickNavItem(selectedIndex + 1);
+          EasyDebounce.debounce(
+              'user-scroll-down-debouncer',
+              Duration(milliseconds: 500),
+              () => onClickNavItem(selectedIndex + 1));
         }
       }
     } else if (event.scrollDelta.dy < 0) {
@@ -93,7 +96,45 @@ class MainLayoutViewModel extends ReactiveViewModel {
       if (currentPosition <= controller.position.minScrollExtent) {
         print('Reached top end');
         if (selectedIndex > 0) {
-          onClickNavItem(selectedIndex - 1);
+          EasyDebounce.debounce(
+              'user-scroll-up-debouncer',
+              Duration(milliseconds: 500),
+              () => onClickNavItem(selectedIndex - 1));
+        }
+      }
+    } else {
+      // No scroll
+      print('No scroll');
+    }
+  }
+
+  void handleUserDrag(DragUpdateDetails details, ScrollController controller) {
+    // Get the current scroll position
+    final currentPosition = controller.position.pixels;
+
+    // Get the max scroll extent (the bottom end of the page)
+    final maxScrollExtent = controller.position.maxScrollExtent;
+
+    if (details.delta.dy > 0) {
+      // Scrolling down
+      if (currentPosition >= maxScrollExtent) {
+        print('Reached top end');
+        if (selectedIndex > 0) {
+          EasyDebounce.debounce(
+              'user-scroll-down-debouncer',
+              Duration(milliseconds: 500),
+              () => onClickNavItem(selectedIndex - 1));
+        }
+      }
+    } else if (details.delta.dy < 0) {
+      // Scrolling up
+      if (currentPosition <= controller.position.minScrollExtent) {
+        print('Reached bottom end');
+        if (selectedIndex < 5) {
+          EasyDebounce.debounce(
+              'user-drag-down-debouncer',
+              Duration(milliseconds: 500),
+              () => onClickNavItem(selectedIndex + 1));
         }
       }
     } else {

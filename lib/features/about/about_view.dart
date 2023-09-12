@@ -16,16 +16,21 @@ class AboutView extends StackedView<AboutViewModel> {
     AboutViewModel viewModel,
     Widget? child,
   ) {
-    return Listener(
-      onPointerSignal: (PointerSignalEvent event) {
-        if (event is PointerScrollEvent) {
-          viewModel.handleUserScroll(event, viewModel.aboutScrollController);
-        }
+    return GestureDetector(
+      onVerticalDragUpdate: (details) {
+        viewModel.handleUserDrag(details, viewModel.aboutScrollController);
       },
-      child: ScreenTypeLayout.builder(
-        mobile: (_) => const AboutMobile(),
-        tablet: (_) => const AboutMobile(),
-        desktop: (_) => const AboutDesktop(),
+      child: Listener(
+        onPointerSignal: (PointerSignalEvent event) {
+          if (event is PointerScrollEvent) {
+            viewModel.handleUserScroll(event, viewModel.aboutScrollController);
+          }
+        },
+        child: ScreenTypeLayout.builder(
+          mobile: (_) => const AboutMobile(),
+          tablet: (_) => const AboutMobile(),
+          desktop: (_) => const AboutDesktop(),
+        ),
       ),
     );
   }
