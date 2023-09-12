@@ -16,6 +16,7 @@ class HomeMobile extends ViewModelWidget<HomeViewModel> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
+          controller: viewModel.homeScrollController,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

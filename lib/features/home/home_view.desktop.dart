@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:srikanthkoti/features/home/home_viewmodel.dart';
 import 'package:srikanthkoti/features/home/widgets/greeting.dart';
@@ -14,6 +15,7 @@ class HomeDesktop extends ViewModelWidget<HomeViewModel> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
+          controller: viewModel.homeScrollController,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

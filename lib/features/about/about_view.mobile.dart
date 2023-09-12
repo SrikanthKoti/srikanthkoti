@@ -14,6 +14,7 @@ class AboutMobile extends ViewModelWidget<AboutViewModel> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
+          controller: viewModel.aboutScrollController,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [

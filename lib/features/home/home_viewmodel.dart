@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:srikanthkoti/app/app.bottomsheets.dart';
 import 'package:srikanthkoti/app/app.dialogs.dart';
 import 'package:srikanthkoti/app/app.locator.dart';
@@ -12,7 +13,7 @@ class HomeViewModel extends MainLayoutViewModel {
   final _dialogService = locator<DialogService>();
   final _bottomSheetService = locator<BottomSheetService>();
   final _log = getLogger('HomeViewModel');
-
+  final ScrollController homeScrollController = ScrollController();
   String get counterLabel => 'Counter is: $_counter';
 
   int _counter = 0;
@@ -25,6 +26,9 @@ class HomeViewModel extends MainLayoutViewModel {
   @override
   void initialize() {
     _log.i("started");
+    homeScrollController.addListener(() {
+      print('IN LISTENER');
+    });
   }
 
   void setText(String newText) {

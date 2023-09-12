@@ -14,6 +14,7 @@ class AboutDesktop extends ViewModelWidget<AboutViewModel> {
     return Scaffold(
       body: Center(
           child: SingleChildScrollView(
+        controller: viewModel.aboutScrollController,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [

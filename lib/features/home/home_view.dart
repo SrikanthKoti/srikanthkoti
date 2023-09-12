@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:srikanthkoti/features/home/home_view.desktop.dart';
@@ -15,10 +16,17 @@ class HomeView extends StackedView<HomeViewModel> {
     HomeViewModel viewModel,
     Widget? child,
   ) {
-    return ScreenTypeLayout.builder(
-      mobile: (_) => const HomeMobile(),
-      desktop: (_) => const HomeDesktop(),
-      tablet: (_) => const HomeDesktop(),
+    return Listener(
+      onPointerSignal: (PointerSignalEvent event) {
+        if (event is PointerScrollEvent) {
+          viewModel.handleUserScroll(event, viewModel.homeScrollController);
+        }
+      },
+      child: ScreenTypeLayout.builder(
+        mobile: (_) => const HomeMobile(),
+        desktop: (_) => const HomeDesktop(),
+        tablet: (_) => const HomeDesktop(),
+      ),
     );
   }
 

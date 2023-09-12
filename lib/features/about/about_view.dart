@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -15,10 +16,17 @@ class AboutView extends StackedView<AboutViewModel> {
     AboutViewModel viewModel,
     Widget? child,
   ) {
-    return ScreenTypeLayout.builder(
-      mobile: (_) => const AboutMobile(),
-      tablet: (_) => const AboutMobile(),
-      desktop: (_) => const AboutDesktop(),
+    return Listener(
+      onPointerSignal: (PointerSignalEvent event) {
+        if (event is PointerScrollEvent) {
+          viewModel.handleUserScroll(event, viewModel.aboutScrollController);
+        }
+      },
+      child: ScreenTypeLayout.builder(
+        mobile: (_) => const AboutMobile(),
+        tablet: (_) => const AboutMobile(),
+        desktop: (_) => const AboutDesktop(),
+      ),
     );
   }
 
