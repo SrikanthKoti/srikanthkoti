@@ -1,6 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:stacked/stacked.dart';
@@ -8,7 +7,7 @@ import 'package:stacked/stacked.dart';
 import 'main_layout_viewmodel.dart';
 
 class MainLayoutView extends StackedView<MainLayoutViewModel> {
-  MainLayoutView({Key? key}) : super(key: key);
+  const MainLayoutView({Key? key}) : super(key: key);
   @override
   Widget builder(
     BuildContext context,
@@ -22,17 +21,8 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
 
     return Scaffold(
       key: viewModel.scaffoldKey,
-      // floatingActionButton: Padding(
-      //   padding: const EdgeInsets.only(top: 8.0),
-      //   child: FloatingActionButton(
-      //     onPressed: () => {viewModel.toggleThemeMode()},
-      //     child: Icon(Icons.light_mode),
-      //   ),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
       appBar: isMobile
           ? AppBar(
-              // title: Text("Srikanth Koti"),
               leading: IconButton(
                 onPressed: () {
                   viewModel.scaffoldKey.currentState?.openDrawer();
@@ -84,6 +74,7 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
     return NavigationRail(
       key: viewModel.navigationKey,
       elevation: 5,
+      selectedIndex: viewModel.selectedIndex,
       selectedIconTheme:
           Theme.of(context).navigationRailTheme.selectedIconTheme,
       unselectedIconTheme:
@@ -104,10 +95,10 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
       // labelType:
       //     !isTablet ? NavigationRailLabelType.all : NavigationRailLabelType.all,
       minExtendedWidth: 200,
-      selectedIndex: viewModel.selectedIndex,
       onDestinationSelected: (int index) {
         viewModel.onClickNavItem(index);
       },
+      useIndicator: true,
       leading: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,24 +1,29 @@
 import 'package:srikanthkoti/app/app.locator.dart';
 import 'package:flutter/material.dart';
-import 'package:sidebarx/sidebarx.dart';
 import 'package:srikanthkoti/app/app.router.dart';
+import 'package:srikanthkoti/services/navrail_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../services/theme_service.dart';
 
-class MainLayoutViewModel extends BaseViewModel {
+class MainLayoutViewModel extends ReactiveViewModel {
   static final _routerService = locator<RouterService>();
   final themeService = locator<ThemeService>();
-  final GlobalKey navigationKey = GlobalKey();
-  int selectedIndex = 0;
+
+  final _navRailService = locator<NavRailService>();
+  int get selectedIndex => _navRailService.selectedIndex;
+
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
+  final navigationKey = GlobalKey();
+  @override
+  List<ListenableServiceMixin> get listenableServices => [_navRailService];
   void onClickNavItem(int index) {
     if (index == selectedIndex) {
       return;
     }
-    selectedIndex = index;
+    _navRailService.setSelectedIndex(index);
     if (index == 0) {
       _routerService.navigateToHomeView();
     } else if (index == 1) {
@@ -35,48 +40,6 @@ class MainLayoutViewModel extends BaseViewModel {
     scaffoldKey.currentState?.closeDrawer();
   }
 
-  final Map<String, dynamic> superAdminSideBar = {
-    "items": <SidebarXItem>[
-      SidebarXItem(
-        icon: Icons.home,
-        label: 'Home',
-        onTap: () {
-          _routerService.navigateToPath(path: 'home');
-        },
-      ),
-      SidebarXItem(
-        icon: Icons.home,
-        label: 'Colleges',
-        onTap: () {
-          _routerService.navigateToPath(path: 'colleges');
-        },
-      ),
-    ],
-    "home": 0,
-    "colleges": 1,
-  };
-  final Map<String, dynamic> defaultSideBar = {
-    "items": <SidebarXItem>[
-      SidebarXItem(
-        icon: Icons.home,
-        label: 'Home',
-        onTap: () {
-          _routerService.navigateToPath(path: 'home');
-        },
-      ),
-      SidebarXItem(
-        icon: Icons.article,
-        label: 'Blogs',
-        onTap: () {
-          // _routerService.navigateToPath(path: 'home');
-        },
-      ),
-    ],
-    "home": 0,
-    "blogs": 1
-  };
-
-  late List<SidebarXItem> sidebarItems;
   Map<String, int> pageIndex = {
     '/home': 0,
     '/about': 1,
@@ -86,23 +49,20 @@ class MainLayoutViewModel extends BaseViewModel {
     '/blog': 5
   };
   void initialize() {
-    sidebarItems = defaultSideBar["items"];
-    selectedIndex = pageIndex[_routerService.router.currentPath] != null
-        ? pageIndex[_routerService.router.currentPath]!
-        : 0;
-  }
-
-  String getTitleByIndex(int index) {
-    switch (index) {
-      case 0:
-        return 'Home';
-      default:
-        return 'Not found page';
-    }
+    _navRailService.setSelectedIndex(
+        pageIndex[_routerService.router.currentPath] != null
+            ? pageIndex[_routerService.router.currentPath]!
+            : 0);
   }
 
   void onTapSidebarItem(String route) {
     _routerService.navigateToPath(path: route);
+  }
+
+  int getSelectedIndex() {
+    return pageIndex[_routerService.router.currentPath] != null
+        ? pageIndex[_routerService.router.currentPath]!
+        : 0;
   }
 
   void toggleThemeMode() {

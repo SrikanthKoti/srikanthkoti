@@ -29,6 +29,8 @@ class AboutView extends StackedView<AboutViewModel> {
       AboutViewModel();
 
   @override
-  void onViewModelReady(AboutViewModel viewModel) => SchedulerBinding.instance
-      .addPostFrameCallback((timeStamp) => viewModel.initialise());
+  void onViewModelReady(AboutViewModel viewModel) {
+    SchedulerBinding.instance
+        .addPostFrameCallback((timeStamp) => viewModel.initialise());
+  }
 }

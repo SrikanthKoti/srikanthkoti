@@ -21,7 +21,7 @@ class AboutHeader extends StatelessWidget {
         return 24.sp;
       }
       if (textType == 'two') {
-        return 57.sp;
+        return 36.sp;
       }
     }
     if (isTablet) {

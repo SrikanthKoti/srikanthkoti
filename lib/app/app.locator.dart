@@ -12,6 +12,7 @@ import 'package:stacked_services/src/navigation/router_service.dart';
 import 'package:stacked_shared/stacked_shared.dart';
 
 import '../features/login/service/login_service.dart';
+import '../services/navrail_service.dart';
 import '../services/shared_preference_service.dart';
 import '../services/theme_service.dart';
 import '../utils/http_client.dart';
@@ -34,6 +35,7 @@ Future<void> setupLocator({
   locator.registerLazySingleton(() => RouterService());
   locator.registerLazySingleton(() => BaseHttpClient());
   locator.registerLazySingleton(() => LoginService());
+  locator.registerLazySingleton(() => NavRailService());
   final sharedPreferencesService = await SharedPreferencesService.getInstance();
   locator.registerSingleton(sharedPreferencesService);
 

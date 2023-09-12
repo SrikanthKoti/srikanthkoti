@@ -1,7 +1,8 @@
 import 'package:srikanthkoti/app/app.logger.dart';
+import 'package:srikanthkoti/features/main_layout/main_layout_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
-class AboutViewModel extends BaseViewModel {
+class AboutViewModel extends MainLayoutViewModel {
   final _log = getLogger('AboutViewModel');
   String text = 'Developer';
   void setText(String newText) {
@@ -11,5 +12,6 @@ class AboutViewModel extends BaseViewModel {
 
   void initialise() {
     _log.i("started");
+    notifyListeners();
   }
 }

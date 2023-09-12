@@ -47,6 +47,33 @@ To generate Code with flutter:
   or you can run
 - stacked generate
 
+## remember how i acheived this:
+
+- answer https://github.com/Stacked-Org/stacked/blob/master/README_old.md#reactivity
+- Problem:
+  MainView - MainViewModel
+  - HomeView - HomeViewModel
+    when i update the value of selectedIndex from the HomeviewModel, It will now be rebuilding the ui of the MainViewBuilder.
+- To fix this, Simply create a NavRailService, & Make the MainVIewModel extend the ReactiveVieeModel & add below code in MainViewModel
+  final \_navRailService = locator<NavRailService>();
+  int get selectedIndex => \_navRailService.selectedIndex;
+  @override
+  List<ListenableServiceMixin> get listenableServices => [_navRailService];
+
+---
+
+import 'package:stacked/stacked.dart';
+
+class NavRailService with ListenableServiceMixin {
+int \_selectedIndex = 0;
+int get selectedIndex => \_selectedIndex;
+
+void setSelectedIndex(int index) {
+\_selectedIndex = index;
+notifyListeners();
+}
+}
+
 If you are opening only the "frontend" folder in VSCode, it might not be automatically recognizing the Git repository located at the root of the "profsy" folder, which is one level up. To make sure VSCode recognizes the Git changes, you can try the following steps:
 
 1. Open VSCode and navigate to the "frontend" folder.

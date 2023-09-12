@@ -4,6 +4,7 @@ import 'package:srikanthkoti/features/colleges/colleges_view.dart';
 import 'package:srikanthkoti/features/projects/projects_view.dart';
 import 'package:srikanthkoti/features/skills/skills_view.dart';
 import 'package:srikanthkoti/services/shared_preference_service.dart';
+import 'package:srikanthkoti/services/navrail_service.dart';
 import 'package:srikanthkoti/services/theme_service.dart';
 import 'package:srikanthkoti/ui/bottom_sheets/notice/notice_sheet.dart';
 import 'package:srikanthkoti/ui/dialogs/info_alert/info_alert_dialog.dart';
@@ -79,6 +80,7 @@ import 'package:srikanthkoti/features/experience/experience_view.dart';
     // @stacked-service
     LazySingleton(classType: BaseHttpClient),
     LazySingleton(classType: LoginService),
+    LazySingleton(classType: NavRailService),
     Presolve(
       classType: SharedPreferencesService,
       presolveUsing: SharedPreferencesService.getInstance,

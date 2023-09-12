@@ -53,15 +53,15 @@ class JobTitles extends ViewModelWidget<HomeViewModel> {
                     fontSize: isMobile ? 35.sp : 108.sp,
                   ),
             ),
-            TypewriterAnimatedText(
-              'Cloud',
-              speed: const Duration(milliseconds: 200),
-              textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
-                    fontWeight: FontWeight.bold,
-                    color: Theme.of(context).primaryColor,
-                    fontSize: isMobile ? 35.sp : 108.sp,
-                  ),
-            ),
+            // TypewriterAnimatedText(
+            //   'Cloud',
+            //   speed: const Duration(milliseconds: 200),
+            //   textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
+            //         fontWeight: FontWeight.bold,
+            //         color: Theme.of(context).primaryColor,
+            //         fontSize: isMobile ? 35.sp : 108.sp,
+            //       ),
+            // ),
           ],
           totalRepeatCount: 4,
           pause: const Duration(milliseconds: 500),

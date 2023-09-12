@@ -43,11 +43,9 @@ class StackedRouterWeb extends _i13.RootStackRouter {
       );
     },
     MainLayoutViewRoute.name: (routeData) {
-      final args = routeData.argsAs<MainLayoutViewArgs>(
-          orElse: () => const MainLayoutViewArgs());
       return _i13.CustomPage<dynamic>(
         routeData: routeData,
-        child: _i2.MainLayoutView(key: args.key),
+        child: const _i2.MainLayoutView(),
         opaque: true,
         barrierDismissible: false,
       );
@@ -59,11 +57,9 @@ class StackedRouterWeb extends _i13.RootStackRouter {
       );
     },
     HomeViewRoute.name: (routeData) {
-      final args =
-          routeData.argsAs<HomeViewArgs>(orElse: () => const HomeViewArgs());
       return _i13.CustomPage<dynamic>(
         routeData: routeData,
-        child: _i4.HomeView(key: args.key),
+        child: const _i4.HomeView(),
         transitionsBuilder: _i13.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
@@ -204,29 +200,15 @@ class StartupViewRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.MainLayoutView]
-class MainLayoutViewRoute extends _i13.PageRouteInfo<MainLayoutViewArgs> {
-  MainLayoutViewRoute({
-    _i14.Key? key,
-    List<_i13.PageRouteInfo>? children,
-  }) : super(
+class MainLayoutViewRoute extends _i13.PageRouteInfo<void> {
+  const MainLayoutViewRoute({List<_i13.PageRouteInfo>? children})
+      : super(
           MainLayoutViewRoute.name,
           path: '/',
-          args: MainLayoutViewArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'MainLayoutView';
-}
-
-class MainLayoutViewArgs {
-  const MainLayoutViewArgs({this.key});
-
-  final _i14.Key? key;
-
-  @override
-  String toString() {
-    return 'MainLayoutViewArgs{key: $key}';
-  }
 }
 
 /// generated route for
@@ -243,26 +225,14 @@ class LoginViewRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.HomeView]
-class HomeViewRoute extends _i13.PageRouteInfo<HomeViewArgs> {
-  HomeViewRoute({_i14.Key? key})
+class HomeViewRoute extends _i13.PageRouteInfo<void> {
+  const HomeViewRoute()
       : super(
           HomeViewRoute.name,
           path: 'home',
-          args: HomeViewArgs(key: key),
         );
 
   static const String name = 'HomeView';
-}
-
-class HomeViewArgs {
-  const HomeViewArgs({this.key});
-
-  final _i14.Key? key;
-
-  @override
-  String toString() {
-    return 'HomeViewArgs{key: $key}';
-  }
 }
 
 /// generated route for
@@ -358,14 +328,10 @@ extension RouterStateExtension on _i11.RouterService {
     );
   }
 
-  Future<dynamic> navigateToMainLayoutView({
-    _i14.Key? key,
-    void Function(_i13.NavigationFailure)? onFailure,
-  }) async {
+  Future<dynamic> navigateToMainLayoutView(
+      {void Function(_i13.NavigationFailure)? onFailure}) async {
     return navigateTo(
-      MainLayoutViewRoute(
-        key: key,
-      ),
+      const MainLayoutViewRoute(),
       onFailure: onFailure,
     );
   }
@@ -378,14 +344,10 @@ extension RouterStateExtension on _i11.RouterService {
     );
   }
 
-  Future<dynamic> navigateToHomeView({
-    _i14.Key? key,
-    void Function(_i13.NavigationFailure)? onFailure,
-  }) async {
+  Future<dynamic> navigateToHomeView(
+      {void Function(_i13.NavigationFailure)? onFailure}) async {
     return navigateTo(
-      HomeViewRoute(
-        key: key,
-      ),
+      const HomeViewRoute(),
       onFailure: onFailure,
     );
   }
@@ -450,14 +412,10 @@ extension RouterStateExtension on _i11.RouterService {
     );
   }
 
-  Future<dynamic> replaceWithMainLayoutView({
-    _i14.Key? key,
-    void Function(_i13.NavigationFailure)? onFailure,
-  }) async {
+  Future<dynamic> replaceWithMainLayoutView(
+      {void Function(_i13.NavigationFailure)? onFailure}) async {
     return replaceWith(
-      MainLayoutViewRoute(
-        key: key,
-      ),
+      const MainLayoutViewRoute(),
       onFailure: onFailure,
     );
   }
@@ -470,14 +428,10 @@ extension RouterStateExtension on _i11.RouterService {
     );
   }
 
-  Future<dynamic> replaceWithHomeView({
-    _i14.Key? key,
-    void Function(_i13.NavigationFailure)? onFailure,
-  }) async {
+  Future<dynamic> replaceWithHomeView(
+      {void Function(_i13.NavigationFailure)? onFailure}) async {
     return replaceWith(
-      HomeViewRoute(
-        key: key,
-      ),
+      const HomeViewRoute(),
       onFailure: onFailure,
     );
   }
