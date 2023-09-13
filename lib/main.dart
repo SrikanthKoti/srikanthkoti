@@ -35,22 +35,22 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
         designSize: getDesignSize(context),
-        // allowFontScaling: false,
         minTextAdapt: true,
         ensureScreenSize: true,
-        // fontSizeResolver: (num val, ScreenUtil screenUtil) {
-        //   return val.sp;
-        // },
         builder: (context, child) {
-          return MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            title: 'Srikanth Koti',
-            theme: _themeService.lightTheme,
-            darkTheme: _themeService.darkTheme,
-            themeMode: _themeService.themeMode,
-            routerDelegate: stackedRouter.delegate(),
-            routeInformationParser: stackedRouter.defaultRouteParser(),
-          );
+          return ValueListenableBuilder<ThemeMode>(
+              valueListenable: _themeService.themeModeNotifier,
+              builder: (BuildContext context, ThemeMode mode, Widget? child) {
+                return MaterialApp.router(
+                  debugShowCheckedModeBanner: false,
+                  title: 'Srikanth Koti',
+                  theme: _themeService.lightTheme,
+                  darkTheme: _themeService.darkTheme,
+                  themeMode: mode,
+                  routerDelegate: stackedRouter.delegate(),
+                  routeInformationParser: stackedRouter.defaultRouteParser(),
+                );
+              });
         });
   }
 }

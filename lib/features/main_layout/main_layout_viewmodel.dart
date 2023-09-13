@@ -5,6 +5,7 @@ import 'package:srikanthkoti/app/app.router.dart';
 import 'package:srikanthkoti/features/about/about_view.dart';
 import 'package:srikanthkoti/features/home/home_view.dart';
 import 'package:srikanthkoti/services/navrail_service.dart';
+import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 import 'package:easy_debounce/easy_debounce.dart';
@@ -13,8 +14,10 @@ import '../../services/theme_service.dart';
 class MainLayoutViewModel extends ReactiveViewModel {
   static final _routerService = locator<RouterService>();
   final themeService = locator<ThemeService>();
-
+  final storageService = locator<SharedPreferencesService>();
   final _navRailService = locator<NavRailService>();
+
+  var currIndex;
   int get selectedIndex => _navRailService.selectedIndex;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -56,6 +59,9 @@ class MainLayoutViewModel extends ReactiveViewModel {
         pageIndex[_routerService.router.currentPath] != null
             ? pageIndex[_routerService.router.currentPath]!
             : 0);
+
+    themeService.themeModeNotifier.value =
+        storageService.getThemeMode("THEME_MODE");
   }
 
   void onTapSidebarItem(String route) {
@@ -141,5 +147,10 @@ class MainLayoutViewModel extends ReactiveViewModel {
       // No scroll
       print('No scroll');
     }
+  }
+
+  void setCurrIndex(int i) {
+    currIndex = i;
+    notifyListeners();
   }
 }

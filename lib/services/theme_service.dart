@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:srikanthkoti/app/app.locator.dart';
+import 'package:srikanthkoti/services/shared_preference_service.dart';
+import 'package:srikanthkoti/services/shared_preference_service.dart';
+import 'package:stacked/stacked.dart';
 
 class ThemeService {
   final ThemeData _lightTheme = FlexThemeData.light(
@@ -37,25 +41,30 @@ class ThemeService {
     fontFamily: GoogleFonts.ibmPlexMono().fontFamily,
   );
 
-  static ThemeMode _themeMode = ThemeMode.dark;
+  final _storageService = locator<SharedPreferencesService>();
+
+  final ValueNotifier<ThemeMode> _themeModeNotifier =
+      ValueNotifier<ThemeMode>(ThemeMode.dark);
 
   ThemeData get lightTheme => _lightTheme;
 
   ThemeData getTheme() {
-    if (_themeMode.toString() == 'ThemeMode.dark') {
+    if (_themeModeNotifier.value.toString() == 'ThemeMode.dark') {
       return _darkTheme;
     }
     return _lightTheme;
   }
 
   void toggleThemeMode() {
-    if (_themeMode.toString() == 'ThemeMode.dark') {
+    if (_themeModeNotifier.value.toString() == 'ThemeMode.dark') {
       print('in if');
-      _themeMode = ThemeMode.light;
+      _themeModeNotifier.value = ThemeMode.light;
+      _storageService.saveToDisk('THEME_MODE', ThemeMode.light.toString());
       return;
     }
     print('out if');
-    _themeMode = ThemeMode.dark;
+    _themeModeNotifier.value = ThemeMode.dark;
+    _storageService.saveToDisk('THEME_MODE', ThemeMode.dark.toString());
   }
 
   ThemeData get darkTheme => _darkTheme;
@@ -63,8 +72,5 @@ class ThemeService {
   //   _darkTheme = value;
   // }
 
-  ThemeMode get themeMode => _themeMode;
-  set themeMode(ThemeMode value) {
-    _themeMode = value;
-  }
+  ValueNotifier<ThemeMode> get themeModeNotifier => _themeModeNotifier;
 }

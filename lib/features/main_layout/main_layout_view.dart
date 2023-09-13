@@ -1,3 +1,4 @@
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
@@ -57,8 +58,14 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
       MainLayoutViewModel();
   @override
   void onViewModelReady(MainLayoutViewModel viewModel) {
-    viewModel.initialize();
+    SchedulerBinding.instance
+        .addPostFrameCallback((timeStamp) => viewModel.initialize());
   }
+
+  // void onViewModelReady(AboutViewModel viewModel) {
+  //   SchedulerBinding.instance
+  //       .addPostFrameCallback((timeStamp) => viewModel.initialise());
+  // }
 }
 
 class NavRail extends ViewModelWidget<MainLayoutViewModel> {
@@ -102,13 +109,32 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
       leading: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
-            'SK',
-            //!isTablet ? 'Srikanth' : 'SK',
-            style: Theme.of(context).textTheme.headlineLarge,
+          IconButton(
+            icon: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (child, anim) => RotationTransition(
+                      turns: Tween<double>(begin: 0, end: -1).animate(anim),
+                      // turns: child.key == ValueKey('icon1')
+                      //     ? Tween<double>(begin: 0, end: -1).animate(anim)
+                      //     : Tween<double>(begin: 0, end: -1).animate(anim),
+                      child: FadeTransition(opacity: anim, child: child),
+                    ),
+                child: viewModel.themeService.themeModeNotifier.value ==
+                        ThemeMode.light
+                    ? Icon(
+                        Icons.dark_mode,
+                        key: const ValueKey('icon1'),
+                        size: 32.sp,
+                      )
+                    : Icon(Icons.light_mode,
+                        key: const ValueKey('icon2'), size: 32.sp)),
+            onPressed: () {
+              // viewModel.setCurrIndex(viewModel.currIndex == 0 ? 1 : 0);
+              viewModel.toggleThemeMode();
+            },
           ),
           // if (!isTablet)
           //   Text(

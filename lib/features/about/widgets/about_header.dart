@@ -97,42 +97,49 @@ class AboutHeader extends StatelessWidget {
         ),
         Row(
           children: [
-            AnimatedTextKit(
-              animatedTexts: [
-                TypewriterAnimatedText(
-                  'Srikanth',
-                  speed: const Duration(milliseconds: 100),
-                  textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      overflow: TextOverflow.visible,
-                      fontSize: getFontSize(context, 'two',
-                          Theme.of(context).textTheme.displayLarge!.fontSize)
-                      // fontSize: isMobile ? 32.sp : 57.sp,
-                      ),
-                ),
-              ],
-              totalRepeatCount: 1,
-              displayFullTextOnTap: true,
-              stopPauseOnTap: true,
+            Text(
+              'Srikanth',
+              // speed: const Duration(milliseconds: 100),
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: getFontSize(context, 'two',
+                      Theme.of(context).textTheme.displayLarge!.fontSize),
+                  color: Theme.of(context).textTheme.displayLarge!.color
+                  // fontSize: isMobile ? 32.sp : 57.sp,
+                  ),
+            ),
+            Text(
+              ' Koti',
+              // speed: const Duration(milliseconds: 100),
+              style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: getFontSize(context, 'two',
+                      Theme.of(context).textTheme.displayLarge!.fontSize),
+                  color: Theme.of(context).textTheme.displayLarge!.color
+                  // fontSize: isMobile ? 32.sp : 57.sp,
+                  ),
             ),
             AnimatedTextKit(
               animatedTexts: [
                 TypewriterAnimatedText(
-                  'Koti',
-                  speed: const Duration(milliseconds: 350),
-                  textStyle: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      overflow: TextOverflow.visible,
-                      fontSize: getFontSize(context, 'two',
-                          Theme.of(context).textTheme.displayLarge!.fontSize)
-
-                      // fontSize: isMobile ? 32.sp : 57.sp,
-                      ),
+                  '',
+                  cursor: '_',
+                  speed: const Duration(milliseconds: 100),
+                  textStyle: Theme.of(context)
+                      .textTheme
+                      .headlineSmall!
+                      .copyWith(
+                          color: Theme.of(context).primaryColor,
+                          fontSize: getFontSize(
+                              context,
+                              'two',
+                              Theme.of(context)
+                                  .textTheme
+                                  .displayLarge!
+                                  .fontSize)),
                 ),
               ],
-              totalRepeatCount: 1,
-              displayFullTextOnTap: true,
-              stopPauseOnTap: true,
+              repeatForever: true,
             ),
             if (!isMobile)
               Row(

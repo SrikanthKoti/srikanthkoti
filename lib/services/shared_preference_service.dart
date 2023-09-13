@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../app/app.logger.dart';
@@ -31,21 +32,33 @@ class SharedPreferencesService {
   }
 
   User? get user {
-    var userJson = _getFromDisk(UserKey);
+    var userJson = getFromDisk(UserKey);
     return userJson != null ? User.fromJson(json.decode(userJson)) : null;
   }
 
   set user(User? userToSave) {
-    _saveToDisk(UserKey, json.encode(userToSave?.toJson()));
+    saveToDisk(UserKey, json.encode(userToSave?.toJson()));
   }
 
-  dynamic _getFromDisk(String key) {
+  ThemeMode getThemeMode(String key) {
+    final value = _preferences?.get(key);
+    if (enableLogs!) _log.v('key:$key value:$value');
+    if (value == null) {
+      return ThemeMode.dark;
+    }
+    if (value.toString().split('.').last == 'light') {
+      return ThemeMode.light;
+    }
+    return ThemeMode.dark;
+  }
+
+  dynamic getFromDisk(String key) {
     final value = _preferences?.get(key);
     if (enableLogs!) _log.v('key:$key value:$value');
     return value;
   }
 
-  void _saveToDisk(String key, dynamic value) {
+  void saveToDisk(String key, dynamic value) {
     if (enableLogs!) _log.v('key:$key value:$value');
 
     switch (value.runtimeType) {
