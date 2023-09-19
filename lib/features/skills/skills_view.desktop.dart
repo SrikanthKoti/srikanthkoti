@@ -67,7 +67,7 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
                   Row(
                     children: [
                       Text(
-                        "Certs",
+                        "Certifications",
                         style: Theme.of(context)
                             .textTheme
                             .displayMedium!
@@ -82,6 +82,7 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
                       ),
                     ],
                   ),
+                  height24,
                   height24,
                   SizedBox(
                     width: 700.w,

@@ -16,7 +16,8 @@ class _CustomIconState extends State<CustomIcon> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
+    return Draggable(
+      child: MouseRegion(
         onEnter: (_) {
           setState(() {
             isHovered = true;
@@ -34,6 +35,14 @@ class _CustomIconState extends State<CustomIcon> {
             size: widget.size,
             color: isHovered ? Theme.of(context).primaryColor : null,
           ),
-        ));
+        ),
+      ),
+      feedback: Icon(
+        widget.iconData,
+        size: widget.size,
+        color: Theme.of(context).primaryColor,
+      ),
+      childWhenDragging: Container(), // You can customize this to your needs.
+    );
   }
 }

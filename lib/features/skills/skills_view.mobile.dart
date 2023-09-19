@@ -55,7 +55,7 @@ class SkillsMobile extends ViewModelWidget<SkillsViewModel> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Certs",
+                    "Certifications",
                     style: Theme.of(context)
                         .textTheme
                         .displayMedium!
