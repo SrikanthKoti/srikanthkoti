@@ -1,5 +1,9 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:srikanthkoti/features/skills/skill_constants.dart';
 import 'package:srikanthkoti/features/skills/skills_viewmodel.dart';
-import 'package:srikanthkoti/ui/common/ui_helpers.dart';
+import 'package:srikanthkoti/features/skills/widgets/skills_icons.dart';
+import 'package:srikanthkoti/ui/atoms/undraw_svg.dart';
+import 'package:srikanthkoti/ui/common/app_spacers.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -12,27 +16,35 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
       body: Center(
         child: SingleChildScrollView(
           controller: viewModel.skillsScrollController,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(
-                "Skills View Desktop",
-                style: Theme.of(context)
-                    .textTheme
-                    .headlineLarge!
-                    .copyWith(fontWeight: FontWeight.bold),
+              UnDraw(
+                svgPath: "icons/undraw_developer_activity.svg",
+                color: Theme.of(context).primaryColor,
+                height: 300.h,
+                width: 300.w,
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('Loading ...',
-                      style: Theme.of(context).textTheme.titleLarge!),
-                  horizontalSpaceSmall,
-                  const SizedBox(
-                    width: 16,
-                    height: 16,
-                    child: CircularProgressIndicator(),
-                  )
+                  Text(
+                    "Skills",
+                    style: Theme.of(context)
+                        .textTheme
+                        .displayMedium!
+                        .copyWith(fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.start,
+                  ),
+                  height24,
+                  height24,
+                  SizedBox(
+                    width: 700.w,
+                    child: const SkillsIcons(
+                      skills: skillsList,
+                    ),
+                  ),
                 ],
               ),
             ],

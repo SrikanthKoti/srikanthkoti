@@ -8,7 +8,7 @@
       "name": "srikanthkoti",
       "request": "launch",
       "type": "dart",
-      "args": ["--web-port=4200"]
+      "args": ["--web-port=4200", "--web-renderer=canvaskit"]
     },
     {
       "name": "srikanthkoti (profile mode)",

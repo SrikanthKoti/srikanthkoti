@@ -14,6 +14,7 @@ void main() {
   setupLocator(stackedRouter: stackedRouter);
   setupDialogUi();
   setupBottomSheetUi();
+// flutter build web --web-renderer canvaskit
 
   runApp(const MyApp());
 }

@@ -29,8 +29,9 @@ class SkillsView extends StackedView<SkillsViewModel> {
           }
         },
         child: ScreenTypeLayout.builder(
-          mobile: (_) => SkillsMobile(),
-          desktop: (_) => SkillsDesktop(),
+          mobile: (_) => const SkillsMobile(),
+          tablet: (_) => const SkillsMobile(),
+          desktop: (_) => const SkillsDesktop(),
         ),
       ),
     );
