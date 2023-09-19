@@ -19,4 +19,7 @@ class AppImages {
   static const String sonarqube = releasePath + 'icons/sonarqube.svg';
   static const String sql = releasePath + 'icons/sql.svg';
   static const String tailwind = releasePath + 'icons/tailwind.svg';
+  static const String cisco = releasePath + 'icons/cisco.svg';
+  static const String microsoftAzure =
+      releasePath + 'icons/microsoft-azure.svg';
 }

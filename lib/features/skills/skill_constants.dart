@@ -2,52 +2,68 @@ import 'package:srikanthkoti/features/skills/model/skill_model.dart';
 import 'package:srikanthkoti/utils/app_images.dart';
 
 const skillsList = [
-  Skill(
-    iconPath: AppImages.flutter,
+  IconEntity(
+    path: AppImages.flutter,
     name: "Flutter",
   ),
-  Skill(
-    iconPath: AppImages.firebase,
+  IconEntity(
+    path: AppImages.firebase,
     name: "Firebase",
   ),
-  Skill(
-    iconPath: AppImages.aws,
+  IconEntity(
+    path: AppImages.aws,
     name: "AWS",
   ),
-  Skill(
-    iconPath: AppImages.express,
+  IconEntity(
+    path: AppImages.cisco,
+    name: "CCNA",
+  ),
+  IconEntity(
+    path: AppImages.express,
     name: "ExpressJs",
   ),
-  Skill(
-    iconPath: AppImages.postgresql,
+  IconEntity(
+    path: AppImages.postgresql,
     name: "Postgresql",
   ),
-  Skill(
-    iconPath: AppImages.iot,
+  IconEntity(
+    path: AppImages.iot,
     name: "IoT",
   ),
-  Skill(
-    iconPath: AppImages.java,
+  IconEntity(
+    path: AppImages.java,
     name: "Java",
   ),
-  Skill(
-    iconPath: AppImages.nextjs,
+  IconEntity(
+    path: AppImages.nextjs,
     name: "NextJs",
   ),
-  Skill(
-    iconPath: AppImages.python,
+  IconEntity(
+    path: AppImages.python,
     name: "Python",
   ),
-  Skill(
-    iconPath: AppImages.sonarqube,
+  IconEntity(
+    path: AppImages.sonarqube,
     name: "SonarQube",
   ),
-  Skill(
-    iconPath: AppImages.sql,
+  IconEntity(
+    path: AppImages.sql,
     name: "SQL",
   ),
-  Skill(
-    iconPath: AppImages.tailwind,
+  IconEntity(
+    path: AppImages.tailwind,
     name: "Tailwind CSS",
+  ),
+];
+
+const certsList = [
+  IconEntity(
+    path: AppImages.aws,
+    name: "Aws Cloud Practitioner",
+  ),
+  IconEntity(path: AppImages.cisco, name: "CCNA"),
+  IconEntity(
+    path: AppImages.microsoftAzure,
+    name: "Microsoft Azure AI",
   ),
 ];

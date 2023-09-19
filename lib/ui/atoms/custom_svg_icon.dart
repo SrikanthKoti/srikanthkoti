@@ -4,8 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:srikanthkoti/ui/atoms/translate_on_hover.dart';
 
 class CustomSvgIcon extends StatefulWidget {
-  final double height;
-  final double width;
+  final double? height;
+  final double? width;
   final String iconPath;
   final String name;
   final bool showColorFilter;
@@ -48,8 +48,8 @@ class _CustomSvgIconState extends State<CustomSvgIcon> {
                 ? ColorFilter.mode(
                     Theme.of(context).primaryColor, BlendMode.srcIn)
                 : null,
-            height: widget.height.h,
-            width: widget.width.w,
+            height: widget.height == null ? 48.h : widget.height!.h,
+            width: widget.width == null ? 48.w : widget.width!.w,
           ),
         ),
       ),

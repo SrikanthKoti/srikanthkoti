@@ -1,7 +1,7 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:srikanthkoti/features/skills/skill_constants.dart';
 import 'package:srikanthkoti/features/skills/skills_viewmodel.dart';
-import 'package:srikanthkoti/features/skills/widgets/skills_icons.dart';
+import 'package:srikanthkoti/features/skills/widgets/icons_row.dart';
 import 'package:srikanthkoti/ui/atoms/animated_cursor.dart';
 import 'package:srikanthkoti/ui/atoms/undraw_svg.dart';
 import 'package:srikanthkoti/ui/common/app_spacers.dart';
@@ -47,8 +47,31 @@ class SkillsMobile extends ViewModelWidget<SkillsViewModel> {
                 ],
               ),
               height24,
-              const SkillsIcons(
-                skills: skillsList,
+              const IconsRow(
+                icons: skillsList,
+              ),
+              height24,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Certs",
+                    style: Theme.of(context)
+                        .textTheme
+                        .displayMedium!
+                        .copyWith(fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.start,
+                  ),
+                  AnimatedCursor(
+                    style: Theme.of(context).textTheme.displayMedium!.copyWith(
+                          color: Theme.of(context).primaryColor,
+                        ),
+                  ),
+                ],
+              ),
+              height24,
+              const IconsRow(
+                icons: certsList,
               ),
             ],
           ),

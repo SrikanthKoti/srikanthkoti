@@ -1,9 +1,8 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:srikanthkoti/features/skills/skill_constants.dart';
 import 'package:srikanthkoti/features/skills/skills_viewmodel.dart';
-import 'package:srikanthkoti/features/skills/widgets/skills_icons.dart';
+import 'package:srikanthkoti/features/skills/widgets/icons_row.dart';
 import 'package:srikanthkoti/ui/atoms/animated_cursor.dart';
 import 'package:srikanthkoti/ui/atoms/undraw_svg.dart';
 import 'package:srikanthkoti/ui/common/app_spacers.dart';
@@ -26,6 +25,7 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
+              // 384452
               UnDraw(
                 svgPath: AppImages.undrawSkills,
                 color: Theme.of(context).primaryColor,
@@ -58,8 +58,35 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
                   height24,
                   SizedBox(
                     width: 700.w,
-                    child: const SkillsIcons(
-                      skills: skillsList,
+                    child: const IconsRow(
+                      icons: skillsList,
+                    ),
+                  ),
+                  height24,
+                  height24,
+                  Row(
+                    children: [
+                      Text(
+                        "Certs",
+                        style: Theme.of(context)
+                            .textTheme
+                            .displayMedium!
+                            .copyWith(fontWeight: FontWeight.bold),
+                        textAlign: TextAlign.start,
+                      ),
+                      AnimatedCursor(
+                        style:
+                            Theme.of(context).textTheme.displayMedium!.copyWith(
+                                  color: Theme.of(context).primaryColor,
+                                ),
+                      ),
+                    ],
+                  ),
+                  height24,
+                  SizedBox(
+                    width: 700.w,
+                    child: const IconsRow(
+                      icons: certsList,
                     ),
                   ),
                 ],
