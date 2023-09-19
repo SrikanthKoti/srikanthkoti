@@ -5,6 +5,7 @@ import 'package:srikanthkoti/features/skills/widgets/skills_icons.dart';
 import 'package:srikanthkoti/ui/atoms/undraw_svg.dart';
 import 'package:srikanthkoti/ui/common/app_spacers.dart';
 import 'package:flutter/material.dart';
+import 'package:srikanthkoti/utils/app_images.dart';
 import 'package:stacked/stacked.dart';
 
 class SkillsMobile extends ViewModelWidget<SkillsViewModel> {
@@ -20,7 +21,7 @@ class SkillsMobile extends ViewModelWidget<SkillsViewModel> {
             mainAxisSize: MainAxisSize.min,
             children: [
               UnDraw(
-                svgPath: "icons/undraw_developer_activity.svg",
+                svgPath: AppImages.undrawSkills,
                 color: Theme.of(context).primaryColor,
                 height: 200.h,
                 width: 200.w,

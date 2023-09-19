@@ -1,5 +1,6 @@
 import 'package:blobs/blobs.dart';
 import 'package:flutter/material.dart';
+import 'package:srikanthkoti/utils/app_images.dart';
 
 class BottomClipInspirationExample extends StatelessWidget {
   const BottomClipInspirationExample({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class BottomClipInspirationExample extends StatelessWidget {
             child: ClipPath(
               clipper: MyClipper(),
               child: Image.asset(
-                "images/0_no_bg.png",
+                AppImages.portfolioImage,
                 alignment: Alignment.bottomCenter,
                 height: 400,
               ),

@@ -1,52 +1,53 @@
 import 'package:srikanthkoti/features/skills/model/skill_model.dart';
+import 'package:srikanthkoti/utils/app_images.dart';
 
 const skillsList = [
   Skill(
-    iconPath: "icons/flutter.svg",
+    iconPath: AppImages.flutter,
     name: "Flutter",
   ),
   Skill(
-    iconPath: "icons/firebase.svg",
+    iconPath: AppImages.firebase,
     name: "Firebase",
   ),
   Skill(
-    iconPath: "icons/aws.svg",
+    iconPath: AppImages.aws,
     name: "AWS",
   ),
   Skill(
-    iconPath: "icons/express-js.svg",
+    iconPath: AppImages.express,
     name: "ExpressJs",
   ),
   Skill(
-    iconPath: "icons/postgresql.svg",
+    iconPath: AppImages.postgresql,
     name: "Postgresql",
   ),
   Skill(
-    iconPath: "icons/iot.svg",
+    iconPath: AppImages.iot,
     name: "IoT",
   ),
   Skill(
-    iconPath: "icons/java_new.svg",
+    iconPath: AppImages.java,
     name: "Java",
   ),
   Skill(
-    iconPath: "icons/nextjs.svg",
+    iconPath: AppImages.nextjs,
     name: "NextJs",
   ),
   Skill(
-    iconPath: "icons/python.svg",
+    iconPath: AppImages.python,
     name: "Python",
   ),
   Skill(
-    iconPath: "icons/sonarqube.svg",
+    iconPath: AppImages.sonarqube,
     name: "SonarQube",
   ),
   Skill(
-    iconPath: "icons/sql.svg",
+    iconPath: AppImages.sql,
     name: "SQL",
   ),
   Skill(
-    iconPath: "icons/tailwind-css.svg",
+    iconPath: AppImages.tailwind,
     name: "Tailwind CSS",
   ),
 ];

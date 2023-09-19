@@ -69,9 +69,7 @@ class Sidebar extends ViewModelWidget<MainLayoutViewModel> {
               child: Text(
                 'Srikanth Koti',
                 style: _themeService.textTheme.displayLarge,
-              )
-              // Image.asset('assets/images/avatar.png'),
-              ),
+              )),
         );
       },
       items: [...items],

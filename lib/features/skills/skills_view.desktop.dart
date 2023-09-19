@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:srikanthkoti/features/skills/skill_constants.dart';
 import 'package:srikanthkoti/features/skills/skills_viewmodel.dart';
@@ -5,6 +6,7 @@ import 'package:srikanthkoti/features/skills/widgets/skills_icons.dart';
 import 'package:srikanthkoti/ui/atoms/undraw_svg.dart';
 import 'package:srikanthkoti/ui/common/app_spacers.dart';
 import 'package:flutter/material.dart';
+import 'package:srikanthkoti/utils/app_images.dart';
 import 'package:stacked/stacked.dart';
 
 class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
@@ -12,6 +14,9 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
 
   @override
   Widget build(BuildContext context, SkillsViewModel viewModel) {
+    print(kReleaseMode);
+    print(AppImages.flutter);
+    print(AppImages.portfolioImage);
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
@@ -20,7 +25,7 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               UnDraw(
-                svgPath: "icons/undraw_developer_activity.svg",
+                svgPath: AppImages.undrawSkills,
                 color: Theme.of(context).primaryColor,
                 height: 300.h,
                 width: 300.w,
