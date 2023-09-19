@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:srikanthkoti/ui/atoms/animated_cursor.dart';
 import 'package:srikanthkoti/ui/atoms/custom_icon.dart';
 import 'package:srikanthkoti/ui/atoms/translate_on_hover.dart';
 
@@ -119,27 +120,12 @@ class AboutHeader extends StatelessWidget {
                   // fontSize: isMobile ? 32.sp : 57.sp,
                   ),
             ),
-            AnimatedTextKit(
-              animatedTexts: [
-                TypewriterAnimatedText(
-                  '',
-                  cursor: '_',
-                  speed: const Duration(milliseconds: 100),
-                  textStyle: Theme.of(context)
-                      .textTheme
-                      .headlineSmall!
-                      .copyWith(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: getFontSize(
-                              context,
-                              'two',
-                              Theme.of(context)
-                                  .textTheme
-                                  .displayLarge!
-                                  .fontSize)),
-                ),
-              ],
-              repeatForever: true,
+            AnimatedCursor(
+              style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: getFontSize(context, 'two',
+                        Theme.of(context).textTheme.displayLarge!.fontSize),
+                  ),
             ),
             if (!isMobile)
               Row(
