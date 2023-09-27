@@ -2,11 +2,13 @@ import 'package:srikanthkoti/features/about/about_view.dart';
 import 'package:srikanthkoti/features/blog/blog_view.dart';
 import 'package:srikanthkoti/features/colleges/colleges_view.dart';
 import 'package:srikanthkoti/features/projects/projects_view.dart';
+import 'package:srikanthkoti/features/services/services_view.dart';
 import 'package:srikanthkoti/features/skills/skills_view.dart';
 import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:srikanthkoti/services/navrail_service.dart';
 import 'package:srikanthkoti/services/theme_service.dart';
 import 'package:srikanthkoti/ui/bottom_sheets/notice/notice_sheet.dart';
+import 'package:srikanthkoti/ui/dialogs/contact_me/contact_me_dialog.dart';
 import 'package:srikanthkoti/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:srikanthkoti/features/home/home_view.dart';
 import 'package:srikanthkoti/features/startup/startup_view.dart';
@@ -45,6 +47,11 @@ import 'package:srikanthkoti/features/experience/experience_view.dart';
         CustomRoute(
           path: 'skills',
           page: SkillsView,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          path: 'services',
+          page: ServicesView,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         CustomRoute(
@@ -93,6 +100,7 @@ import 'package:srikanthkoti/features/experience/experience_view.dart';
   ],
   dialogs: [
     StackedDialog(classType: InfoAlertDialog),
+    StackedDialog(classType: ContactMeDialog),
     // @stacked-dialog
   ],
   logger: StackedLogger(),

@@ -13,13 +13,13 @@ class ProjectsView extends StackedView<ProjectsViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        body: Center(
-          child: Text(
-            "Projects",
-            style: Theme.of(context).textTheme.headlineLarge,
-          ),
-        ));
+      body: Center(
+        child: Text(
+          "Projects",
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
+      ),
+    );
   }
 
   @override

@@ -6,3 +6,12 @@ const double design_mobile_height = 915;
 
 const double design_tablet_width = 768;
 const double design_tablet_height = 1024;
+
+enum BottomSheetType {
+  notice,
+  // @stacked-bottom-sheet-type
+}
+
+enum DialogType {
+  infoAlert,
+}

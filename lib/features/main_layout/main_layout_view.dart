@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'package:srikanthkoti/ui/dialogs/info_alert/info_alert_dialog.dart';
 import 'package:stacked/stacked.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 import 'main_layout_viewmodel.dart';
 
@@ -38,14 +40,29 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
               child: NavRail(isTablet: isTablet),
             )
           : null,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          viewModel.onClickContactMe();
+        },
+        child: const Icon(Icons.alternate_email_rounded),
+      ),
       body: Row(
         children: [
+          if (viewModel.showDailog)
+            InfoAlertDialog(
+              completer: (p0) {
+                print(p0);
+              },
+              request:
+                  DialogRequest(title: 'title', description: 'description'),
+            ),
           if (!isMobile) NavRail(isTablet: isTablet),
           Expanded(
-              child: Padding(
-            padding: EdgeInsets.only(left: 8.w),
-            child: const NestedRouter(),
-          )),
+            child: Padding(
+              padding: EdgeInsets.only(left: 8.w),
+              child: const NestedRouter(),
+            ),
+          ),
         ],
       ),
     );
@@ -106,6 +123,7 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
         viewModel.onClickNavItem(index);
       },
       useIndicator: true,
+
       leading: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -127,29 +145,26 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
                     ? Icon(
                         Icons.dark_mode,
                         key: const ValueKey('icon1'),
-                        size: 32.sp,
+                        size: 32.spMax,
                       )
                     : Icon(Icons.light_mode,
-                        key: const ValueKey('icon2'), size: 32.sp)),
+                        key: const ValueKey('icon2'), size: 32.spMax)),
             onPressed: () {
-              // viewModel.setCurrIndex(viewModel.currIndex == 0 ? 1 : 0);
               viewModel.toggleThemeMode();
             },
           ),
-          // if (!isTablet)
-          //   Text(
-          //     'Koti',
-          //     style: Theme.of(context).textTheme.headlineLarge,
-          //   ),
-          SizedBox(
+          const SizedBox(
             height: 60,
           )
         ],
       ),
       destinations: const <NavigationRailDestination>[
         NavigationRailDestination(
-          icon: Icon(
-            FontAwesomeIcons.code,
+          icon: Tooltip(
+            message: "Home",
+            child: Icon(
+              FontAwesomeIcons.code,
+            ),
           ),
           selectedIcon: Icon(
             FontAwesomeIcons.code,
@@ -159,8 +174,12 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           ),
         ),
         NavigationRailDestination(
-          icon: Icon(
-            FontAwesomeIcons.addressCard,
+          icon: Tooltip(
+            preferBelow: false,
+            message: 'About',
+            child: Icon(
+              FontAwesomeIcons.addressCard,
+            ),
           ),
           selectedIcon: Icon(
             FontAwesomeIcons.solidAddressCard,
@@ -170,8 +189,11 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           ),
         ),
         NavigationRailDestination(
-          icon: Icon(
-            FontAwesomeIcons.star,
+          icon: Tooltip(
+            message: 'Skills',
+            child: Icon(
+              FontAwesomeIcons.star,
+            ),
           ),
           selectedIcon: Icon(
             FontAwesomeIcons.solidStar,
@@ -181,14 +203,29 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           ),
         ),
         NavigationRailDestination(
-          icon: Icon(Icons.book),
+          icon: Tooltip(
+            message: 'Services',
+            child: Icon(
+              FontAwesomeIcons.wrench,
+            ),
+          ),
+          selectedIcon: Icon(
+            FontAwesomeIcons.screwdriverWrench,
+          ),
+          label: Text(
+            'Services',
+          ),
+        ),
+        NavigationRailDestination(
+          icon: Tooltip(message: 'Experience', child: Icon(Icons.book)),
           selectedIcon: Icon(Icons.book),
           label: Text(
             'Experience',
           ),
         ),
         NavigationRailDestination(
-          icon: Icon(Icons.workspace_premium),
+          icon: Tooltip(
+              message: 'Projects', child: Icon(Icons.workspace_premium)),
           selectedIcon: Icon(Icons.star),
           label: Text(
             'Projects',

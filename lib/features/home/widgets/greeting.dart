@@ -17,7 +17,7 @@ class Greeting extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "SRIKANTH KOTI IS",
+          "SRIKANTH IS MY NAME",
           style: Theme.of(context).textTheme.displayMedium!.copyWith(
               fontSize: isMobile ? 20.sp : 45.sp, fontWeight: FontWeight.bold),
         ),

@@ -51,6 +51,8 @@ dependencies:
   flutter_screenutil: ^5.9.0
   easy_debounce: ^2.0.3 # used to debounce scroll & swipe
   flutter_svg: ^2.0.7
+  card_swiper: ^3.0.1
+  arrow_path: ^3.1.0
 
 dev_dependencies:
   flutter_test:

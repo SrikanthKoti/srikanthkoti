@@ -15,9 +15,6 @@ class SkillsDesktop extends ViewModelWidget<SkillsViewModel> {
 
   @override
   Widget build(BuildContext context, SkillsViewModel viewModel) {
-    print(kReleaseMode);
-    print(AppImages.flutter);
-    print(AppImages.portfolioImage);
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(

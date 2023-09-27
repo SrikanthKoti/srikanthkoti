@@ -1,3 +1,3 @@
-import 'package:stacked/stacked.dart';
+import 'package:srikanthkoti/features/main_layout/main_layout_viewmodel.dart';
 
-class ProjectsViewModel extends BaseViewModel {}
+class ProjectsViewModel extends MainLayoutViewModel {}

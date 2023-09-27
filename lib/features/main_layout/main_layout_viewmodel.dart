@@ -1,4 +1,5 @@
 import 'package:flutter/gestures.dart';
+import 'package:srikanthkoti/app/app.dialogs.dart';
 import 'package:srikanthkoti/app/app.locator.dart';
 import 'package:flutter/material.dart';
 import 'package:srikanthkoti/app/app.router.dart';
@@ -13,6 +14,7 @@ import '../../services/theme_service.dart';
 
 class MainLayoutViewModel extends ReactiveViewModel {
   static final _routerService = locator<RouterService>();
+  static final _dialogService = locator<DialogService>();
   final themeService = locator<ThemeService>();
   final storageService = locator<SharedPreferencesService>();
   final _navRailService = locator<NavRailService>();
@@ -37,10 +39,12 @@ class MainLayoutViewModel extends ReactiveViewModel {
     } else if (index == 2) {
       _routerService.navigateToSkillsView();
     } else if (index == 3) {
-      _routerService.navigateToProjectsView();
+      _routerService.navigateToServicesView();
     } else if (index == 4) {
-      _routerService.navigateToExperienceView();
+      _routerService.navigateToProjectsView();
     } else if (index == 5) {
+      _routerService.navigateToExperienceView();
+    } else if (index == 6) {
       _routerService.navigateToBlogView();
     }
     scaffoldKey.currentState?.closeDrawer();
@@ -50,16 +54,23 @@ class MainLayoutViewModel extends ReactiveViewModel {
     '/home': 0,
     '/about': 1,
     '/skills': 2,
-    '/projects': 3,
-    '/experience': 4,
-    '/blog': 5
+    '/services': 3,
+    '/projects': 4,
+    '/experience': 5,
+    '/blog': 6
   };
-  void initialize() {
+  void initialize() async {
     _navRailService.setSelectedIndex(
         pageIndex[_routerService.router.currentPath] != null
             ? pageIndex[_routerService.router.currentPath]!
             : 0);
-
+    // dynamic response = await _dialogService.showCustomDialog(
+    //     variant: DialogType.contactMe,
+    //     title: "title",
+    //     description: "description");
+    // if (response.confirmed) {
+    //   print('CONFIRMWED');
+    // }
     themeService.themeModeNotifier.value =
         storageService.getThemeMode("THEME_MODE");
   }
@@ -152,5 +163,17 @@ class MainLayoutViewModel extends ReactiveViewModel {
   void setCurrIndex(int i) {
     currIndex = i;
     notifyListeners();
+  }
+
+  bool showDailog = false;
+  void onClickContactMe() async {
+    dynamic response = await _dialogService.showCustomDialog(
+        variant: DialogType.contactMe,
+        title: "title",
+        description: "description");
+    if (response.confirmed) {
+      print('CONFIRMWED');
+    }
+    // _dialogService.
   }
 }

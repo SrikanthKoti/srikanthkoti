@@ -68,7 +68,8 @@ class JobTitles extends ViewModelWidget<HomeViewModel> {
           displayFullTextOnTap: true,
         ),
         Text(
-          viewModel.text,
+          // viewModel.text,
+          "IS MY GAME",
           style: Theme.of(context).textTheme.displayLarge!.copyWith(
                 overflow: TextOverflow.visible,
                 fontSize: isMobile ? 35.sp : 108.sp,
