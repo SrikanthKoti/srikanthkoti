@@ -2,8 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:srikanthkoti/features/about/about_view.desktop.dart';
-import 'package:srikanthkoti/features/about/about_view.mobile.dart';
 import 'package:srikanthkoti/features/skills/skills_view.desktop.dart';
 import 'package:srikanthkoti/features/skills/skills_view.mobile.dart';
 import 'package:srikanthkoti/features/skills/skills_viewmodel.dart';

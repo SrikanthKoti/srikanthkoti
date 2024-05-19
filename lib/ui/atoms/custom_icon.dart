@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomIcon extends StatefulWidget {
   final double size;
   final IconData iconData;
 
-  CustomIcon({this.size = 26, required this.iconData});
+  const CustomIcon({super.key, this.size = 26, required this.iconData});
 
   @override
   _CustomIconState createState() => _CustomIconState();

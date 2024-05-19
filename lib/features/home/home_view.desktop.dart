@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:srikanthkoti/features/home/home_viewmodel.dart';
 import 'package:srikanthkoti/features/home/widgets/greeting.dart';

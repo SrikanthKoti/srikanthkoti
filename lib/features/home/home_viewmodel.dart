@@ -27,7 +27,7 @@ class HomeViewModel extends MainLayoutViewModel {
   void initialize() {
     _log.i("started");
     homeScrollController.addListener(() {
-      print('IN LISTENER');
+      debugPrint('IN LISTENER');
     });
   }
 

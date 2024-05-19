@@ -44,7 +44,7 @@ SidebarXTheme sidebarTheme = SidebarXTheme(
   ),
 );
 
-SidebarXTheme sidebarExtendedTheme = SidebarXTheme(
+SidebarXTheme sidebarExtendedTheme = const SidebarXTheme(
   width: 200,
   decoration: BoxDecoration(
       // color: backgroundDark //canvasColor,

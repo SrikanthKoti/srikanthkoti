@@ -1,11 +1,8 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:srikanthkoti/ui/atoms/custom_text_field.dart';
 import 'package:srikanthkoti/features/login/login_viewmodel.dart';
-import 'package:srikanthkoti/utils/screen_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:intl_phone_field/phone_number.dart';
 import 'package:pinput/pinput.dart';
 import 'package:stacked/stacked.dart';
 
@@ -23,7 +20,7 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text(
+        const Text(
           'Login',
           textAlign: TextAlign.start,
           style: TextStyle(
@@ -111,7 +108,7 @@ class LoginForm extends ViewModelWidget<LoginViewModel> {
                     : viewModel.onClickVerifyOtp,
                 child: Text(
                   viewModel.loginState == 'getOtp' ? 'Get otp' : 'Verify',
-                  style: TextStyle(fontSize: 18),
+                  style: const TextStyle(fontSize: 18),
                 ),
               ),
             ),

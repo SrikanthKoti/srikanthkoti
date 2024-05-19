@@ -128,7 +128,7 @@ class AboutHeader extends StatelessWidget {
                   ),
             ),
             if (!isMobile)
-              Row(
+              const Row(
                 children: [
                   TranslateOnHover(
                     child: CustomIcon(

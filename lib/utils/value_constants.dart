@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 const double design_desktop_width = 1536;
 const double design_desktop_height = 764;
 

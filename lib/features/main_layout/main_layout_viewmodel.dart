@@ -3,8 +3,6 @@ import 'package:srikanthkoti/app/app.dialogs.dart';
 import 'package:srikanthkoti/app/app.locator.dart';
 import 'package:flutter/material.dart';
 import 'package:srikanthkoti/app/app.router.dart';
-import 'package:srikanthkoti/features/about/about_view.dart';
-import 'package:srikanthkoti/features/home/home_view.dart';
 import 'package:srikanthkoti/services/navrail_service.dart';
 import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:stacked/stacked.dart';
@@ -19,7 +17,7 @@ class MainLayoutViewModel extends ReactiveViewModel {
   final storageService = locator<SharedPreferencesService>();
   final _navRailService = locator<NavRailService>();
 
-  var currIndex;
+  var currIndex = 0;
   int get selectedIndex => _navRailService.selectedIndex;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -60,19 +58,17 @@ class MainLayoutViewModel extends ReactiveViewModel {
     '/blog': 6
   };
   void initialize() async {
-    _navRailService.setSelectedIndex(
-        pageIndex[_routerService.router.currentPath] != null
-            ? pageIndex[_routerService.router.currentPath]!
-            : 0);
+    _navRailService.setSelectedIndex(pageIndex[_routerService.router.currentPath] != null
+        ? pageIndex[_routerService.router.currentPath]!
+        : 0);
     // dynamic response = await _dialogService.showCustomDialog(
     //     variant: DialogType.contactMe,
     //     title: "title",
     //     description: "description");
     // if (response.confirmed) {
-    //   print('CONFIRMWED');
+    //   debugPrint('CONFIRMWED');
     // }
-    themeService.themeModeNotifier.value =
-        storageService.getThemeMode("THEME_MODE");
+    themeService.themeModeNotifier.value = storageService.getThemeMode("THEME_MODE");
   }
 
   void onTapSidebarItem(String route) {
@@ -86,7 +82,7 @@ class MainLayoutViewModel extends ReactiveViewModel {
   }
 
   void toggleThemeMode() {
-    print('In here');
+    debugPrint('In here');
     themeService.toggleThemeMode();
   }
 
@@ -100,28 +96,24 @@ class MainLayoutViewModel extends ReactiveViewModel {
     if (event.scrollDelta.dy > 0) {
       // Scrolling down
       if (currentPosition >= maxScrollExtent) {
-        print('Reached bottom end');
+        debugPrint('Reached bottom end');
         if (selectedIndex < 5) {
-          EasyDebounce.debounce(
-              'user-scroll-down-debouncer',
-              Duration(milliseconds: 500),
+          EasyDebounce.debounce('user-scroll-down-debouncer', const Duration(milliseconds: 500),
               () => onClickNavItem(selectedIndex + 1));
         }
       }
     } else if (event.scrollDelta.dy < 0) {
       // Scrolling up
       if (currentPosition <= controller.position.minScrollExtent) {
-        print('Reached top end');
+        debugPrint('Reached top end');
         if (selectedIndex > 0) {
-          EasyDebounce.debounce(
-              'user-scroll-up-debouncer',
-              Duration(milliseconds: 500),
+          EasyDebounce.debounce('user-scroll-up-debouncer', const Duration(milliseconds: 500),
               () => onClickNavItem(selectedIndex - 1));
         }
       }
     } else {
       // No scroll
-      print('No scroll');
+      debugPrint('No scroll');
     }
   }
 
@@ -135,28 +127,24 @@ class MainLayoutViewModel extends ReactiveViewModel {
     if (details.delta.dy > 0) {
       // Scrolling down
       if (currentPosition >= maxScrollExtent) {
-        print('Reached top end');
+        debugPrint('Reached top end');
         if (selectedIndex > 0) {
-          EasyDebounce.debounce(
-              'user-scroll-down-debouncer',
-              Duration(milliseconds: 500),
+          EasyDebounce.debounce('user-scroll-down-debouncer', const Duration(milliseconds: 500),
               () => onClickNavItem(selectedIndex - 1));
         }
       }
     } else if (details.delta.dy < 0) {
       // Scrolling up
       if (currentPosition <= controller.position.minScrollExtent) {
-        print('Reached bottom end');
+        debugPrint('Reached bottom end');
         if (selectedIndex < 5) {
-          EasyDebounce.debounce(
-              'user-drag-down-debouncer',
-              Duration(milliseconds: 500),
+          EasyDebounce.debounce('user-drag-down-debouncer', const Duration(milliseconds: 500),
               () => onClickNavItem(selectedIndex + 1));
         }
       }
     } else {
       // No scroll
-      print('No scroll');
+      debugPrint('No scroll');
     }
   }
 
@@ -168,11 +156,9 @@ class MainLayoutViewModel extends ReactiveViewModel {
   bool showDailog = false;
   void onClickContactMe() async {
     dynamic response = await _dialogService.showCustomDialog(
-        variant: DialogType.contactMe,
-        title: "title",
-        description: "description");
+        variant: DialogType.contactMe, title: "title", description: "description");
     if (response.confirmed) {
-      print('CONFIRMWED');
+      debugPrint('CONFIRMWED');
     }
     // _dialogService.
   }

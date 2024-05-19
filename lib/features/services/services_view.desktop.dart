@@ -1,13 +1,9 @@
 // Are you a founder looking for tech ?
 // Do u need to take your business to next level ?
 // Are you a student trying to Get in to this world of tect
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:srikanthkoti/features/services/services_viewmodel.dart';
-import 'package:srikanthkoti/ui/atoms/custom_icon.dart';
-import 'package:srikanthkoti/ui/atoms/undraw_svg.dart';
 import 'package:srikanthkoti/ui/common/app_spacers.dart';
 import 'package:srikanthkoti/utils/app_images.dart';
 import 'package:stacked/stacked.dart';

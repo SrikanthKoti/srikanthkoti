@@ -107,26 +107,24 @@ class UnDraw extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FutureBuilder(
-        future: renderIllustration(svgPath, color),
-        builder: (BuildContext context, AsyncSnapshot snapshot) {
-          if (snapshot.hasData) {
-            return Container(
-              padding: padding ?? EdgeInsets.all(16),
-              child: snapshot.data,
-            );
-          } else if (snapshot.hasError) {
-            return Center(
-              child: errorWidget ?? Text('Could not load illustration!'),
-            );
-          } else {
-            return Center(
-              child: placeholder ?? CircularProgressIndicator(),
-            );
-          }
-        },
-      ),
+    return FutureBuilder(
+      future: renderIllustration(svgPath, color),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          return Container(
+            padding: padding ?? const EdgeInsets.all(16),
+            child: snapshot.data,
+          );
+        } else if (snapshot.hasError) {
+          return Center(
+            child: errorWidget ?? const Text('Could not load illustration!'),
+          );
+        } else {
+          return Center(
+            child: placeholder ?? const CircularProgressIndicator(),
+          );
+        }
+      },
     );
   }
 
