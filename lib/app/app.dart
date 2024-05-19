@@ -27,18 +27,19 @@ import 'package:srikanthkoti/features/experience/experience_view.dart';
 
 @StackedApp(
   routes: [
-    MaterialRoute(page: StartupView, initial: true),
+    MaterialRoute(page: StartupView),
+    CustomRoute(
+      path: '/home',
+      initial: true,
+      page: PortfolioView,
+      transitionsBuilder: TransitionsBuilders.fadeIn,
+    ),
     CustomRoute(
       page: MainLayoutView,
       path: '/',
       usesPathAsKey: true,
       guards: [AuthGuard],
       children: [
-        CustomRoute(
-          path: 'home',
-          page: PortfolioView,
-          transitionsBuilder: TransitionsBuilders.fadeIn,
-        ),
         CustomRoute(
           initial: true,
           path: 'homeOld',

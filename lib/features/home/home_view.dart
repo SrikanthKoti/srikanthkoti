@@ -18,12 +18,12 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return GestureDetector(
       onVerticalDragUpdate: (details) {
-        viewModel.handleUserDrag(details, viewModel.homeScrollController);
+        // viewModel.handleUserDrag(details, viewModel.homeScrollController);
       },
       child: Listener(
         onPointerSignal: (PointerSignalEvent event) {
           if (event is PointerScrollEvent) {
-            viewModel.handleUserScroll(event, viewModel.homeScrollController);
+            // viewModel.handleUserScroll(event, viewModel.homeScrollController);
           }
         },
         child: ScreenTypeLayout.builder(

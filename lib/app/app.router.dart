@@ -14,9 +14,9 @@ import '../features/blog/blog_view.dart' as _i12;
 import '../features/colleges/colleges_view.dart' as _i9;
 import '../features/experience/experience_view.dart' as _i10;
 import '../features/home/home_view.dart' as _i5;
-import '../features/login/login_view.dart' as _i3;
-import '../features/main_layout/main_layout_view.dart' as _i2;
-import '../features/portfolio/portfolio_view.dart' as _i4;
+import '../features/login/login_view.dart' as _i4;
+import '../features/main_layout/main_layout_view.dart' as _i3;
+import '../features/portfolio/portfolio_view.dart' as _i2;
 import '../features/projects/projects_view.dart' as _i11;
 import '../features/services/services_view.dart' as _i8;
 import '../features/skills/skills_view.dart' as _i7;
@@ -44,10 +44,19 @@ class StackedRouterWeb extends _i15.RootStackRouter {
         child: const _i1.StartupView(),
       );
     },
+    PortfolioViewRoute.name: (routeData) {
+      return _i15.CustomPage<dynamic>(
+        routeData: routeData,
+        child: const _i2.PortfolioView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
     MainLayoutViewRoute.name: (routeData) {
       return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i2.MainLayoutView(),
+        child: const _i3.MainLayoutView(),
         opaque: true,
         barrierDismissible: false,
       );
@@ -55,16 +64,7 @@ class StackedRouterWeb extends _i15.RootStackRouter {
     LoginViewRoute.name: (routeData) {
       return _i15.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i3.LoginView(),
-      );
-    },
-    PortfolioViewRoute.name: (routeData) {
-      return _i15.CustomPage<dynamic>(
-        routeData: routeData,
-        child: const _i4.PortfolioView(),
-        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
-        opaque: true,
-        barrierDismissible: false,
+        child: const _i4.LoginView(),
       );
     },
     HomeViewRoute.name: (routeData) {
@@ -147,7 +147,11 @@ class StackedRouterWeb extends _i15.RootStackRouter {
   List<_i15.RouteConfig> get routes => [
         _i15.RouteConfig(
           StartupViewRoute.name,
-          path: '/',
+          path: '/startup-view',
+        ),
+        _i15.RouteConfig(
+          PortfolioViewRoute.name,
+          path: '/home',
         ),
         _i15.RouteConfig(
           MainLayoutViewRoute.name,
@@ -161,11 +165,6 @@ class StackedRouterWeb extends _i15.RootStackRouter {
               parent: MainLayoutViewRoute.name,
               redirectTo: 'homeOld',
               fullMatch: true,
-            ),
-            _i15.RouteConfig(
-              PortfolioViewRoute.name,
-              path: 'home',
-              parent: MainLayoutViewRoute.name,
             ),
             _i15.RouteConfig(
               HomeViewRoute.name,
@@ -222,14 +221,26 @@ class StartupViewRoute extends _i15.PageRouteInfo<void> {
   const StartupViewRoute()
       : super(
           StartupViewRoute.name,
-          path: '/',
+          path: '/startup-view',
         );
 
   static const String name = 'StartupView';
 }
 
 /// generated route for
-/// [_i2.MainLayoutView]
+/// [_i2.PortfolioView]
+class PortfolioViewRoute extends _i15.PageRouteInfo<void> {
+  const PortfolioViewRoute()
+      : super(
+          PortfolioViewRoute.name,
+          path: '/home',
+        );
+
+  static const String name = 'PortfolioView';
+}
+
+/// generated route for
+/// [_i3.MainLayoutView]
 class MainLayoutViewRoute extends _i15.PageRouteInfo<void> {
   const MainLayoutViewRoute({List<_i15.PageRouteInfo>? children})
       : super(
@@ -242,7 +253,7 @@ class MainLayoutViewRoute extends _i15.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.LoginView]
+/// [_i4.LoginView]
 class LoginViewRoute extends _i15.PageRouteInfo<void> {
   const LoginViewRoute()
       : super(
@@ -251,18 +262,6 @@ class LoginViewRoute extends _i15.PageRouteInfo<void> {
         );
 
   static const String name = 'LoginView';
-}
-
-/// generated route for
-/// [_i4.PortfolioView]
-class PortfolioViewRoute extends _i15.PageRouteInfo<void> {
-  const PortfolioViewRoute()
-      : super(
-          PortfolioViewRoute.name,
-          path: 'home',
-        );
-
-  static const String name = 'PortfolioView';
 }
 
 /// generated route for
@@ -382,6 +381,14 @@ extension RouterStateExtension on _i13.RouterService {
     );
   }
 
+  Future<dynamic> navigateToPortfolioView(
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
+    return navigateTo(
+      const PortfolioViewRoute(),
+      onFailure: onFailure,
+    );
+  }
+
   Future<dynamic> navigateToMainLayoutView(
       {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
@@ -394,14 +401,6 @@ extension RouterStateExtension on _i13.RouterService {
       {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const LoginViewRoute(),
-      onFailure: onFailure,
-    );
-  }
-
-  Future<dynamic> navigateToPortfolioView(
-      {void Function(_i15.NavigationFailure)? onFailure}) async {
-    return navigateTo(
-      const PortfolioViewRoute(),
       onFailure: onFailure,
     );
   }
@@ -482,6 +481,14 @@ extension RouterStateExtension on _i13.RouterService {
     );
   }
 
+  Future<dynamic> replaceWithPortfolioView(
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
+    return replaceWith(
+      const PortfolioViewRoute(),
+      onFailure: onFailure,
+    );
+  }
+
   Future<dynamic> replaceWithMainLayoutView(
       {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
@@ -494,14 +501,6 @@ extension RouterStateExtension on _i13.RouterService {
       {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const LoginViewRoute(),
-      onFailure: onFailure,
-    );
-  }
-
-  Future<dynamic> replaceWithPortfolioView(
-      {void Function(_i15.NavigationFailure)? onFailure}) async {
-    return replaceWith(
-      const PortfolioViewRoute(),
       onFailure: onFailure,
     );
   }

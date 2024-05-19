@@ -18,12 +18,12 @@ class AboutView extends StackedView<AboutViewModel> {
   ) {
     return GestureDetector(
       onVerticalDragUpdate: (details) {
-        viewModel.handleUserDrag(details, viewModel.aboutScrollController);
+        // viewModel.handleUserDrag(details, viewModel.aboutScrollController);
       },
       child: Listener(
         onPointerSignal: (PointerSignalEvent event) {
           if (event is PointerScrollEvent) {
-            viewModel.handleUserScroll(event, viewModel.aboutScrollController);
+            // viewModel.handleUserScroll(event, viewModel.aboutScrollController);
           }
         },
         child: ScreenTypeLayout.builder(
@@ -43,7 +43,6 @@ class AboutView extends StackedView<AboutViewModel> {
 
   @override
   void onViewModelReady(AboutViewModel viewModel) {
-    SchedulerBinding.instance
-        .addPostFrameCallback((timeStamp) => viewModel.initialise());
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) => viewModel.initialise());
   }
 }

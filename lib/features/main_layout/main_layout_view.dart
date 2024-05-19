@@ -54,12 +54,12 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
               request: DialogRequest(title: 'title', description: 'description'),
             ),
           if (!isMobile) NavRail(isTablet: isTablet),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(left: 8.w),
-              child: const NestedRouter(),
-            ),
-          ),
+          // Expanded(
+          //   child: Padding(
+          //     padding: EdgeInsets.only(left: 8.w),
+          //     child: const NestedRouter(),
+          //   ),
+          // ),
         ],
       ),
     );
