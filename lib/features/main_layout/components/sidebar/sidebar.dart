@@ -1,8 +1,6 @@
 import 'package:srikanthkoti/app/app.locator.dart';
 import 'package:srikanthkoti/features/main_layout/main_layout_viewmodel.dart';
 import 'package:srikanthkoti/services/theme_service.dart';
-import 'package:srikanthkoti/ui/common/app_colors.dart';
-import 'package:srikanthkoti/ui/common/styles.dart';
 import 'package:srikanthkoti/ui/common/ui_helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:sidebarx/sidebarx.dart';

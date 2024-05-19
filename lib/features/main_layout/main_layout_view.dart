@@ -17,10 +17,8 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
     MainLayoutViewModel viewModel,
     Widget? child,
   ) {
-    final isMobile =
-        getDeviceType(MediaQuery.of(context).size) == DeviceScreenType.mobile;
-    final isTablet =
-        getDeviceType(MediaQuery.of(context).size) == DeviceScreenType.tablet;
+    final isMobile = getDeviceType(MediaQuery.of(context).size) == DeviceScreenType.mobile;
+    final isTablet = getDeviceType(MediaQuery.of(context).size) == DeviceScreenType.tablet;
 
     return Scaffold(
       key: viewModel.scaffoldKey,
@@ -51,10 +49,9 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
           if (viewModel.showDailog)
             InfoAlertDialog(
               completer: (p0) {
-                print(p0);
+                // print(p0);
               },
-              request:
-                  DialogRequest(title: 'title', description: 'description'),
+              request: DialogRequest(title: 'title', description: 'description'),
             ),
           if (!isMobile) NavRail(isTablet: isTablet),
           Expanded(
@@ -75,8 +72,7 @@ class MainLayoutView extends StackedView<MainLayoutViewModel> {
       MainLayoutViewModel();
   @override
   void onViewModelReady(MainLayoutViewModel viewModel) {
-    SchedulerBinding.instance
-        .addPostFrameCallback((timeStamp) => viewModel.initialize());
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) => viewModel.initialize());
   }
 
   // void onViewModelReady(AboutViewModel viewModel) {
@@ -99,22 +95,16 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
       key: viewModel.navigationKey,
       elevation: 5,
       selectedIndex: viewModel.selectedIndex,
-      selectedIconTheme:
-          Theme.of(context).navigationRailTheme.selectedIconTheme,
-      unselectedIconTheme:
-          Theme.of(context).navigationRailTheme.unselectedIconTheme,
-      selectedLabelTextStyle: Theme.of(context)
-          .navigationRailTheme
-          .selectedLabelTextStyle!
-          .copyWith(
-            fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
-          ),
-      unselectedLabelTextStyle: Theme.of(context)
-          .navigationRailTheme
-          .unselectedLabelTextStyle!
-          .copyWith(
-            fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
-          ),
+      selectedIconTheme: Theme.of(context).navigationRailTheme.selectedIconTheme,
+      unselectedIconTheme: Theme.of(context).navigationRailTheme.unselectedIconTheme,
+      selectedLabelTextStyle:
+          Theme.of(context).navigationRailTheme.selectedLabelTextStyle!.copyWith(
+                fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
+              ),
+      unselectedLabelTextStyle:
+          Theme.of(context).navigationRailTheme.unselectedLabelTextStyle!.copyWith(
+                fontSize: Theme.of(context).textTheme.titleMedium!.fontSize,
+              ),
       extended: false, //!isTablet,
       // labelType:
       //     !isTablet ? NavigationRailLabelType.all : NavigationRailLabelType.all,
@@ -140,15 +130,13 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
                       //     : Tween<double>(begin: 0, end: -1).animate(anim),
                       child: FadeTransition(opacity: anim, child: child),
                     ),
-                child: viewModel.themeService.themeModeNotifier.value ==
-                        ThemeMode.light
+                child: viewModel.themeService.themeModeNotifier.value == ThemeMode.light
                     ? Icon(
                         Icons.dark_mode,
                         key: const ValueKey('icon1'),
                         size: 32.spMax,
                       )
-                    : Icon(Icons.light_mode,
-                        key: const ValueKey('icon2'), size: 32.spMax)),
+                    : Icon(Icons.light_mode, key: const ValueKey('icon2'), size: 32.spMax)),
             onPressed: () {
               viewModel.toggleThemeMode();
             },
@@ -224,8 +212,7 @@ class NavRail extends ViewModelWidget<MainLayoutViewModel> {
           ),
         ),
         NavigationRailDestination(
-          icon: Tooltip(
-              message: 'Projects', child: Icon(Icons.workspace_premium)),
+          icon: Tooltip(message: 'Projects', child: Icon(Icons.workspace_premium)),
           selectedIcon: Icon(Icons.star),
           label: Text(
             'Projects',

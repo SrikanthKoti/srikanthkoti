@@ -49,19 +49,19 @@ class User {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['emailId'] = this.emailId;
-    data['mobileNumber'] = this.mobileNumber;
-    data['countryCode'] = this.countryCode;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
-    data['roles'] = this.roles.map((v) => v.toJson()).toList();
-    data['token'] = this.token;
-    data['refreshToken'] = this.refreshToken;
-    data['roleList'] = this.roleList;
-    data['privilegeList'] = this.privilegeList;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['emailId'] = emailId;
+    data['mobileNumber'] = mobileNumber;
+    data['countryCode'] = countryCode;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
+    data['roles'] = roles.map((v) => v.toJson()).toList();
+    data['token'] = token;
+    data['refreshToken'] = refreshToken;
+    data['roleList'] = roleList;
+    data['privilegeList'] = privilegeList;
     return data;
   }
 }
@@ -90,11 +90,11 @@ class Roles {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['privileges'] = this.privileges.map((v) => v.toJson()).toList();
-    if (this.userRole != null) {
-      data['UserRole'] = this.userRole!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['privileges'] = privileges.map((v) => v.toJson()).toList();
+    if (userRole != null) {
+      data['UserRole'] = userRole!.toJson();
     }
     return data;
   }
@@ -117,9 +117,9 @@ class Privileges {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['slug'] = this.slug;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['slug'] = slug;
     return data;
   }
 }
@@ -150,12 +150,12 @@ class UserRole {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['roleId'] = this.roleId;
-    data['userId'] = this.userId;
-    data['createdAt'] = this.createdAt;
-    data['updatedAt'] = this.updatedAt;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['roleId'] = roleId;
+    data['userId'] = userId;
+    data['createdAt'] = createdAt;
+    data['updatedAt'] = updatedAt;
     return data;
   }
 }

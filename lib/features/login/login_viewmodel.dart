@@ -77,7 +77,7 @@ class LoginViewModel extends FormViewModel {
     if (response.isSuccess) {
       _storageService.user = User.fromJson(response.value);
 
-      _routerService.clearStackAndShow(MainLayoutViewRoute());
+      _routerService.clearStackAndShow(const MainLayoutViewRoute());
     } else {
       _showValidation = true;
       otpValidationMessage = response.error;
@@ -109,9 +109,9 @@ class LoginViewModel extends FormViewModel {
     return Result.success("Valid Otp");
   }
 
+  // ignore: unused_element
   String _composeValidationMessageText() {
-    String output =
-        'Something went wrong, please verify the following errors:\n';
+    String output = 'Something went wrong, please verify the following errors:\n';
 
     // if (hasMobileNumberValidationMessage) {
     //   output +=

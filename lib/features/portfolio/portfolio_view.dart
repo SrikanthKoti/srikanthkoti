@@ -1,3 +1,4 @@
+import 'package:srikanthkoti/features/home/home_view.dart';
 import 'package:srikanthkoti/features/portfolio/portfolio_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -16,7 +17,7 @@ class PortfolioView extends StackedView<PortfolioViewModel> {
       body: Column(
         children: [
           PageView(
-            children: [],
+            children: const [HomeView()],
           )
         ],
       ),

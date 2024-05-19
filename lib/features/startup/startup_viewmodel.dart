@@ -1,16 +1,14 @@
-import 'package:srikanthkoti/features/portfolio/portfolio_view.dart';
-import 'package:srikanthkoti/services/shared_preference_service.dart';
+// import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:srikanthkoti/app/app.locator.dart';
 import 'package:srikanthkoti/app/app.router.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../app/app.logger.dart';
-import '../login/data/user_model.dart';
 
 class StartupViewModel extends BaseViewModel {
   final _routerService = locator<RouterService>();
-  final _storageService = locator<SharedPreferencesService>();
+  // final _storageService = locator<SharedPreferencesService>();
   final text = "STARTUPMOBILE";
   final textDesktop = "STARTUP DESKTOP";
   final _log = getLogger('StartupViewModel');

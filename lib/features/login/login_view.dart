@@ -31,8 +31,8 @@ class LoginView extends StackedView<LoginViewModel> {
     Widget? child,
   ) {
     return ScreenTypeLayout.builder(
-      mobile: (_) => LoginMobile(),
-      desktop: (_) => LoginDesktop(),
+      mobile: (_) => const LoginMobile(),
+      desktop: (_) => const LoginDesktop(),
     );
   }
 
@@ -49,9 +49,9 @@ class LoginView extends StackedView<LoginViewModel> {
 }
 
 class LoginViewValidators {
+  // ignore: unused_element
   static bool _isEmailValid(email) {
-    return RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+    return RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
         .hasMatch(email);
   }
 
