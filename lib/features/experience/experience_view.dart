@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -12,14 +13,29 @@ class ExperienceView extends StackedView<ExperienceViewModel> {
     ExperienceViewModel viewModel,
     Widget? child,
   ) {
-    return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        body: Center(
-          child: Text(
-            "Experience",
-            style: Theme.of(context).textTheme.headlineLarge,
+    return GestureDetector(
+      onVerticalDragUpdate: (details) {
+        viewModel.handleUserDrag(details, viewModel.serviceScrollController);
+      },
+      child: Listener(
+        onPointerSignal: (PointerSignalEvent event) {
+          if (event is PointerScrollEvent) {
+            viewModel.handleUserScroll(event, viewModel.serviceScrollController);
+          }
+        },
+        child: Scaffold(
+          body: Center(
+            child: SingleChildScrollView(
+              controller: viewModel.serviceScrollController,
+              child: Text(
+                "Experience",
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+            ),
           ),
-        ));
+        ),
+      ),
+    );
   }
 
   @override

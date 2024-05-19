@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:srikanthkoti/features/services/services_view.desktop.dart';
@@ -16,16 +17,15 @@ class ServicesView extends StackedView<ServicesViewModel> {
     Widget? child,
   ) {
     return GestureDetector(
-      // onVerticalDragUpdate: (details) {
-      //   viewModel.handleUserDrag(details, viewModel.serviceScrollController);
-      // },
+      onVerticalDragUpdate: (details) {
+        viewModel.handleUserDrag(details, viewModel.serviceScrollController);
+      },
       child: Listener(
-        // onPointerSignal: (PointerSignalEvent event) {
-        //   if (event is PointerScrollEvent) {
-        //     viewModel.handleUserScroll(
-        //         event, viewModel.serviceScrollController);
-        //   }
-        // },
+        onPointerSignal: (PointerSignalEvent event) {
+          if (event is PointerScrollEvent) {
+            viewModel.handleUserScroll(event, viewModel.serviceScrollController);
+          }
+        },
         child: ScreenTypeLayout.builder(
           mobile: (_) => const ServicesMobile(),
           tablet: (_) => const ServicesMobile(),

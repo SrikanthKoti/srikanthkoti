@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -12,12 +13,32 @@ class ProjectsView extends StackedView<ProjectsViewModel> {
     ProjectsViewModel viewModel,
     Widget? child,
   ) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          "Projects",
-          style: Theme.of(context).textTheme.headlineLarge,
+    return GestureDetector(
+      onVerticalDragUpdate: (details) {
+        viewModel.handleUserDrag(details, viewModel.serviceScrollController);
+      },
+      child: Listener(
+        onPointerSignal: (PointerSignalEvent event) {
+          if (event is PointerScrollEvent) {
+            viewModel.handleUserScroll(event, viewModel.serviceScrollController);
+          }
+        },
+        child: Scaffold(
+          body: Center(
+            child: SingleChildScrollView(
+              controller: viewModel.serviceScrollController,
+              child: Text(
+                "Projects",
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+            ),
+          ),
         ),
+        // ScreenTypeLayout.builder(
+        //   mobile: (_) => const ServicesMobile(),
+        //   tablet: (_) => const ServicesMobile(),
+        //   desktop: (_) => const ServicesDesktop(),
+        // ),
       ),
     );
   }
