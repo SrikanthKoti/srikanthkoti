@@ -1,3 +1,4 @@
+import 'package:srikanthkoti/features/portfolio/portfolio_view.dart';
 import 'package:srikanthkoti/services/shared_preference_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:srikanthkoti/app/app.locator.dart';
@@ -17,7 +18,7 @@ class StartupViewModel extends BaseViewModel {
   // Place anything here that needs to happen before we get into the application
   Future runStartupLogic() async {
     _log.i("started");
-    _routerService.clearStackAndShow(MainLayoutViewRoute());
+    _routerService.clearStackAndShow(const PortfolioViewRoute());
     // _routerService.replaceWithMainLayoutView();
 
     // User? user = _storageService.user;

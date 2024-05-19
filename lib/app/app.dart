@@ -1,6 +1,7 @@
 import 'package:srikanthkoti/features/about/about_view.dart';
 import 'package:srikanthkoti/features/blog/blog_view.dart';
 import 'package:srikanthkoti/features/colleges/colleges_view.dart';
+import 'package:srikanthkoti/features/portfolio/portfolio_view.dart';
 import 'package:srikanthkoti/features/projects/projects_view.dart';
 import 'package:srikanthkoti/features/services/services_view.dart';
 import 'package:srikanthkoti/features/skills/skills_view.dart';
@@ -34,8 +35,13 @@ import 'package:srikanthkoti/features/experience/experience_view.dart';
       guards: [AuthGuard],
       children: [
         CustomRoute(
-          initial: true,
           path: 'home',
+          page: PortfolioView,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          initial: true,
+          path: 'homeOld',
           page: HomeView,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
@@ -76,6 +82,7 @@ import 'package:srikanthkoti/features/experience/experience_view.dart';
         ),
       ],
     ),
+
     MaterialRoute(page: LoginView),
 
 // @stacked-route

@@ -5,46 +5,47 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter/material.dart' as _i15;
-import 'package:stacked/stacked.dart' as _i14;
-import 'package:stacked_services/stacked_services.dart' as _i12;
+import 'package:flutter/material.dart' as _i16;
+import 'package:stacked/stacked.dart' as _i15;
+import 'package:stacked_services/stacked_services.dart' as _i13;
 
-import '../features/about/about_view.dart' as _i5;
-import '../features/blog/blog_view.dart' as _i11;
-import '../features/colleges/colleges_view.dart' as _i8;
-import '../features/experience/experience_view.dart' as _i9;
-import '../features/home/home_view.dart' as _i4;
+import '../features/about/about_view.dart' as _i6;
+import '../features/blog/blog_view.dart' as _i12;
+import '../features/colleges/colleges_view.dart' as _i9;
+import '../features/experience/experience_view.dart' as _i10;
+import '../features/home/home_view.dart' as _i5;
 import '../features/login/login_view.dart' as _i3;
 import '../features/main_layout/main_layout_view.dart' as _i2;
-import '../features/projects/projects_view.dart' as _i10;
-import '../features/services/services_view.dart' as _i7;
-import '../features/skills/skills_view.dart' as _i6;
+import '../features/portfolio/portfolio_view.dart' as _i4;
+import '../features/projects/projects_view.dart' as _i11;
+import '../features/services/services_view.dart' as _i8;
+import '../features/skills/skills_view.dart' as _i7;
 import '../features/startup/startup_view.dart' as _i1;
-import 'guards/auth_guard.dart' as _i13;
+import 'guards/auth_guard.dart' as _i14;
 
 final stackedRouter = StackedRouterWeb(
-  navigatorKey: _i12.StackedService.navigatorKey,
-  authGuard: _i13.AuthGuard(),
+  navigatorKey: _i13.StackedService.navigatorKey,
+  authGuard: _i14.AuthGuard(),
 );
 
-class StackedRouterWeb extends _i14.RootStackRouter {
+class StackedRouterWeb extends _i15.RootStackRouter {
   StackedRouterWeb({
-    _i15.GlobalKey<_i15.NavigatorState>? navigatorKey,
+    _i16.GlobalKey<_i16.NavigatorState>? navigatorKey,
     required this.authGuard,
   }) : super(navigatorKey);
 
-  final _i13.AuthGuard authGuard;
+  final _i14.AuthGuard authGuard;
 
   @override
-  final Map<String, _i14.PageFactory> pagesMap = {
+  final Map<String, _i15.PageFactory> pagesMap = {
     StartupViewRoute.name: (routeData) {
-      return _i14.MaterialPageX<dynamic>(
+      return _i15.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i1.StartupView(),
       );
     },
     MainLayoutViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
         child: const _i2.MainLayoutView(),
         opaque: true,
@@ -52,43 +53,52 @@ class StackedRouterWeb extends _i14.RootStackRouter {
       );
     },
     LoginViewRoute.name: (routeData) {
-      return _i14.MaterialPageX<dynamic>(
+      return _i15.MaterialPageX<dynamic>(
         routeData: routeData,
         child: const _i3.LoginView(),
       );
     },
-    HomeViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+    PortfolioViewRoute.name: (routeData) {
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i4.HomeView(),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: const _i4.PortfolioView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
+        opaque: true,
+        barrierDismissible: false,
+      );
+    },
+    HomeViewRoute.name: (routeData) {
+      return _i15.CustomPage<dynamic>(
+        routeData: routeData,
+        child: const _i5.HomeView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
     },
     AboutViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i5.AboutView(),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: const _i6.AboutView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
     },
     SkillsViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i6.SkillsView(),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: const _i7.SkillsView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
     },
     ServicesViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i7.ServicesView(),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: const _i8.ServicesView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
@@ -96,37 +106,37 @@ class StackedRouterWeb extends _i14.RootStackRouter {
     CollegesViewRoute.name: (routeData) {
       final args = routeData.argsAs<CollegesViewArgs>(
           orElse: () => const CollegesViewArgs());
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: _i8.CollegesView(key: args.key),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: _i9.CollegesView(key: args.key),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
     },
     ExperienceViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i9.ExperienceView(),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: const _i10.ExperienceView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
     },
     ProjectsViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i10.ProjectsView(),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: const _i11.ProjectsView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
     },
     BlogViewRoute.name: (routeData) {
-      return _i14.CustomPage<dynamic>(
+      return _i15.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i11.BlogView(),
-        transitionsBuilder: _i14.TransitionsBuilders.fadeIn,
+        child: const _i12.BlogView(),
+        transitionsBuilder: _i15.TransitionsBuilders.fadeIn,
         opaque: true,
         barrierDismissible: false,
       );
@@ -134,67 +144,72 @@ class StackedRouterWeb extends _i14.RootStackRouter {
   };
 
   @override
-  List<_i14.RouteConfig> get routes => [
-        _i14.RouteConfig(
+  List<_i15.RouteConfig> get routes => [
+        _i15.RouteConfig(
           StartupViewRoute.name,
           path: '/',
         ),
-        _i14.RouteConfig(
+        _i15.RouteConfig(
           MainLayoutViewRoute.name,
           path: '/',
           usesPathAsKey: true,
           guards: [authGuard],
           children: [
-            _i14.RouteConfig(
+            _i15.RouteConfig(
               '#redirect',
               path: '',
               parent: MainLayoutViewRoute.name,
-              redirectTo: 'home',
+              redirectTo: 'homeOld',
               fullMatch: true,
             ),
-            _i14.RouteConfig(
-              HomeViewRoute.name,
+            _i15.RouteConfig(
+              PortfolioViewRoute.name,
               path: 'home',
               parent: MainLayoutViewRoute.name,
             ),
-            _i14.RouteConfig(
+            _i15.RouteConfig(
+              HomeViewRoute.name,
+              path: 'homeOld',
+              parent: MainLayoutViewRoute.name,
+            ),
+            _i15.RouteConfig(
               AboutViewRoute.name,
               path: 'about',
               parent: MainLayoutViewRoute.name,
             ),
-            _i14.RouteConfig(
+            _i15.RouteConfig(
               SkillsViewRoute.name,
               path: 'skills',
               parent: MainLayoutViewRoute.name,
             ),
-            _i14.RouteConfig(
+            _i15.RouteConfig(
               ServicesViewRoute.name,
               path: 'services',
               parent: MainLayoutViewRoute.name,
             ),
-            _i14.RouteConfig(
+            _i15.RouteConfig(
               CollegesViewRoute.name,
               path: 'colleges',
               parent: MainLayoutViewRoute.name,
             ),
-            _i14.RouteConfig(
+            _i15.RouteConfig(
               ExperienceViewRoute.name,
               path: 'experience',
               parent: MainLayoutViewRoute.name,
             ),
-            _i14.RouteConfig(
+            _i15.RouteConfig(
               ProjectsViewRoute.name,
               path: 'projects',
               parent: MainLayoutViewRoute.name,
             ),
-            _i14.RouteConfig(
+            _i15.RouteConfig(
               BlogViewRoute.name,
               path: 'blog',
               parent: MainLayoutViewRoute.name,
             ),
           ],
         ),
-        _i14.RouteConfig(
+        _i15.RouteConfig(
           LoginViewRoute.name,
           path: '/login-view',
         ),
@@ -203,7 +218,7 @@ class StackedRouterWeb extends _i14.RootStackRouter {
 
 /// generated route for
 /// [_i1.StartupView]
-class StartupViewRoute extends _i14.PageRouteInfo<void> {
+class StartupViewRoute extends _i15.PageRouteInfo<void> {
   const StartupViewRoute()
       : super(
           StartupViewRoute.name,
@@ -215,8 +230,8 @@ class StartupViewRoute extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.MainLayoutView]
-class MainLayoutViewRoute extends _i14.PageRouteInfo<void> {
-  const MainLayoutViewRoute({List<_i14.PageRouteInfo>? children})
+class MainLayoutViewRoute extends _i15.PageRouteInfo<void> {
+  const MainLayoutViewRoute({List<_i15.PageRouteInfo>? children})
       : super(
           MainLayoutViewRoute.name,
           path: '/',
@@ -228,7 +243,7 @@ class MainLayoutViewRoute extends _i14.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.LoginView]
-class LoginViewRoute extends _i14.PageRouteInfo<void> {
+class LoginViewRoute extends _i15.PageRouteInfo<void> {
   const LoginViewRoute()
       : super(
           LoginViewRoute.name,
@@ -239,20 +254,32 @@ class LoginViewRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.HomeView]
-class HomeViewRoute extends _i14.PageRouteInfo<void> {
+/// [_i4.PortfolioView]
+class PortfolioViewRoute extends _i15.PageRouteInfo<void> {
+  const PortfolioViewRoute()
+      : super(
+          PortfolioViewRoute.name,
+          path: 'home',
+        );
+
+  static const String name = 'PortfolioView';
+}
+
+/// generated route for
+/// [_i5.HomeView]
+class HomeViewRoute extends _i15.PageRouteInfo<void> {
   const HomeViewRoute()
       : super(
           HomeViewRoute.name,
-          path: 'home',
+          path: 'homeOld',
         );
 
   static const String name = 'HomeView';
 }
 
 /// generated route for
-/// [_i5.AboutView]
-class AboutViewRoute extends _i14.PageRouteInfo<void> {
+/// [_i6.AboutView]
+class AboutViewRoute extends _i15.PageRouteInfo<void> {
   const AboutViewRoute()
       : super(
           AboutViewRoute.name,
@@ -263,8 +290,8 @@ class AboutViewRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.SkillsView]
-class SkillsViewRoute extends _i14.PageRouteInfo<void> {
+/// [_i7.SkillsView]
+class SkillsViewRoute extends _i15.PageRouteInfo<void> {
   const SkillsViewRoute()
       : super(
           SkillsViewRoute.name,
@@ -275,8 +302,8 @@ class SkillsViewRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.ServicesView]
-class ServicesViewRoute extends _i14.PageRouteInfo<void> {
+/// [_i8.ServicesView]
+class ServicesViewRoute extends _i15.PageRouteInfo<void> {
   const ServicesViewRoute()
       : super(
           ServicesViewRoute.name,
@@ -287,9 +314,9 @@ class ServicesViewRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.CollegesView]
-class CollegesViewRoute extends _i14.PageRouteInfo<CollegesViewArgs> {
-  CollegesViewRoute({_i15.Key? key})
+/// [_i9.CollegesView]
+class CollegesViewRoute extends _i15.PageRouteInfo<CollegesViewArgs> {
+  CollegesViewRoute({_i16.Key? key})
       : super(
           CollegesViewRoute.name,
           path: 'colleges',
@@ -302,7 +329,7 @@ class CollegesViewRoute extends _i14.PageRouteInfo<CollegesViewArgs> {
 class CollegesViewArgs {
   const CollegesViewArgs({this.key});
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
   @override
   String toString() {
@@ -311,8 +338,8 @@ class CollegesViewArgs {
 }
 
 /// generated route for
-/// [_i9.ExperienceView]
-class ExperienceViewRoute extends _i14.PageRouteInfo<void> {
+/// [_i10.ExperienceView]
+class ExperienceViewRoute extends _i15.PageRouteInfo<void> {
   const ExperienceViewRoute()
       : super(
           ExperienceViewRoute.name,
@@ -323,8 +350,8 @@ class ExperienceViewRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.ProjectsView]
-class ProjectsViewRoute extends _i14.PageRouteInfo<void> {
+/// [_i11.ProjectsView]
+class ProjectsViewRoute extends _i15.PageRouteInfo<void> {
   const ProjectsViewRoute()
       : super(
           ProjectsViewRoute.name,
@@ -335,8 +362,8 @@ class ProjectsViewRoute extends _i14.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i11.BlogView]
-class BlogViewRoute extends _i14.PageRouteInfo<void> {
+/// [_i12.BlogView]
+class BlogViewRoute extends _i15.PageRouteInfo<void> {
   const BlogViewRoute()
       : super(
           BlogViewRoute.name,
@@ -346,9 +373,9 @@ class BlogViewRoute extends _i14.PageRouteInfo<void> {
   static const String name = 'BlogView';
 }
 
-extension RouterStateExtension on _i12.RouterService {
+extension RouterStateExtension on _i13.RouterService {
   Future<dynamic> navigateToStartupView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const StartupViewRoute(),
       onFailure: onFailure,
@@ -356,7 +383,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToMainLayoutView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const MainLayoutViewRoute(),
       onFailure: onFailure,
@@ -364,15 +391,23 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToLoginView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const LoginViewRoute(),
       onFailure: onFailure,
     );
   }
 
+  Future<dynamic> navigateToPortfolioView(
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
+    return navigateTo(
+      const PortfolioViewRoute(),
+      onFailure: onFailure,
+    );
+  }
+
   Future<dynamic> navigateToHomeView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const HomeViewRoute(),
       onFailure: onFailure,
@@ -380,7 +415,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToAboutView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const AboutViewRoute(),
       onFailure: onFailure,
@@ -388,7 +423,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToSkillsView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const SkillsViewRoute(),
       onFailure: onFailure,
@@ -396,7 +431,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToServicesView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const ServicesViewRoute(),
       onFailure: onFailure,
@@ -404,8 +439,8 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToCollegesView({
-    _i15.Key? key,
-    void Function(_i14.NavigationFailure)? onFailure,
+    _i16.Key? key,
+    void Function(_i15.NavigationFailure)? onFailure,
   }) async {
     return navigateTo(
       CollegesViewRoute(
@@ -416,7 +451,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToExperienceView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const ExperienceViewRoute(),
       onFailure: onFailure,
@@ -424,7 +459,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToProjectsView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const ProjectsViewRoute(),
       onFailure: onFailure,
@@ -432,7 +467,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> navigateToBlogView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return navigateTo(
       const BlogViewRoute(),
       onFailure: onFailure,
@@ -440,7 +475,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithStartupView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const StartupViewRoute(),
       onFailure: onFailure,
@@ -448,7 +483,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithMainLayoutView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const MainLayoutViewRoute(),
       onFailure: onFailure,
@@ -456,15 +491,23 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithLoginView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const LoginViewRoute(),
       onFailure: onFailure,
     );
   }
 
+  Future<dynamic> replaceWithPortfolioView(
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
+    return replaceWith(
+      const PortfolioViewRoute(),
+      onFailure: onFailure,
+    );
+  }
+
   Future<dynamic> replaceWithHomeView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const HomeViewRoute(),
       onFailure: onFailure,
@@ -472,7 +515,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithAboutView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const AboutViewRoute(),
       onFailure: onFailure,
@@ -480,7 +523,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithSkillsView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const SkillsViewRoute(),
       onFailure: onFailure,
@@ -488,7 +531,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithServicesView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const ServicesViewRoute(),
       onFailure: onFailure,
@@ -496,8 +539,8 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithCollegesView({
-    _i15.Key? key,
-    void Function(_i14.NavigationFailure)? onFailure,
+    _i16.Key? key,
+    void Function(_i15.NavigationFailure)? onFailure,
   }) async {
     return replaceWith(
       CollegesViewRoute(
@@ -508,7 +551,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithExperienceView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const ExperienceViewRoute(),
       onFailure: onFailure,
@@ -516,7 +559,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithProjectsView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const ProjectsViewRoute(),
       onFailure: onFailure,
@@ -524,7 +567,7 @@ extension RouterStateExtension on _i12.RouterService {
   }
 
   Future<dynamic> replaceWithBlogView(
-      {void Function(_i14.NavigationFailure)? onFailure}) async {
+      {void Function(_i15.NavigationFailure)? onFailure}) async {
     return replaceWith(
       const BlogViewRoute(),
       onFailure: onFailure,
